@@ -1,7 +1,17 @@
 import React from "react";
-import MainPage from "./Components/MainPage.js";
+import Header from "./Components/Header.js";
+import RecipeSearch from "./Components/RecipeSearch";
+import WeekPlanning from "./Components/WeekPlanning";
 function App() {
-  return <MainPage />;
+  return (
+    <>
+      <div className="app">
+        <Header />
+        <RecipeSearch />
+        <WeekPlanning />
+      </div>
+    </>
+  );
 }
 
 export default App;
