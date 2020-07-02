@@ -27,3 +27,23 @@ code {
 .Header p {
   padding: 0rem 2rem 0rem 2rem;
 }
+
+.RecipeSearch {
+  min-height: 25vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.WeekPlanning {
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.WeekPlanning table {
+  border: 2px solid black;
+}

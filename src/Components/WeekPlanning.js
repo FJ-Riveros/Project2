@@ -1,7 +1,15 @@
 import React from "react";
 
 const WeekPlanning = () => {
-  return <h1>Hi</h1>;
+  return (
+    <>
+      <div className="WeekPlanning">
+        <h2>Week Planning</h2>
+        <table width="200px" height="200px"></table>
+        <button>Random week</button>
+      </div>
+    </>
+  );
 };
 
 export default WeekPlanning;
