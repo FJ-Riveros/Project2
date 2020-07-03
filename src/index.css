@@ -37,6 +37,7 @@ code {
 }
 
 .WeekPlanning {
+  width: 100%;
   min-height: 50vh;
   display: flex;
   flex-direction: column;

@@ -1,12 +1,12 @@
 import React from "react";
-import BorderedInput from "./InputBordered.js";
+import Input from "./InputAutocomplete.js";
 
 const RecipeSearch = () => {
   return (
     <>
       <div className="RecipeSearch">
         <h2>Recipe Search</h2>
-        <BorderedInput />
+        <Input />
         <button>Random</button>
       </div>
     </>
