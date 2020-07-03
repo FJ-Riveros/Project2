@@ -1,12 +1,12 @@
 import React from "react";
 import Input from "./InputAutocomplete.js";
 
-const RecipeSearch = () => {
+const RecipeSearch = ({ setInputFirstLetter }) => {
   return (
     <>
       <div className="RecipeSearch">
         <h2>Recipe Search</h2>
-        <Input />
+        <Input setInputFirstLetter={setInputFirstLetter} />
         <button>Random</button>
       </div>
     </>

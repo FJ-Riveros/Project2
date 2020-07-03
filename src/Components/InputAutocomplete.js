@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 
-export default function FreeSolo() {
+export default function FreeSolo({ setInputFirstLetter }) {
   const [recipe, setRecipe] = useState("");
   const recipeEvent = (event) => {
-    setRecipe(event.target.value);
+    setInputFirstLetter(event.target.value);
   };
   console.log(recipe);
+
   return (
     <div style={{ width: 300 }}>
       <Autocomplete
