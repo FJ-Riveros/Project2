@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 
-export default function FreeSolo({ setInputFirstLetter }) {
+export default function FreeSolo({ setInputFirstLetter, data }) {
   const [recipe, setRecipe] = useState("");
   const recipeEvent = (event) => {
     setInputFirstLetter(event.target.value);
@@ -14,7 +14,7 @@ export default function FreeSolo({ setInputFirstLetter }) {
       <Autocomplete
         id="free-solo-demo"
         freeSolo
-        options={top100Films.map((option) => `Hola ${option.title}`)}
+        options={data !== "" ? data.meals.strMeal : []}
         renderInput={(params) => (
           <TextField
             {...params}

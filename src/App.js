@@ -4,7 +4,11 @@ import RecipeSearch from "./Components/RecipeSearch";
 import WeekPlanning from "./Components/WeekPlanning";
 
 function App() {
+  //Receives the first letter from the input to load the info
   const [inputFirstLetter, setInputFirstLetter] = useState("");
+
+  //Contains the data from the API
+  const [data, setData] = useState("");
 
   useEffect(() => {
     init();
@@ -21,7 +25,8 @@ function App() {
       `https://www.themealdb.com/api/json/v1/1/search.php?f=${inputFirstLetter}`
     );
     const response = await data.json();
-    console.log(response);
+    setData(response);
+    console.log(response.meals);
   };
 
   return (
@@ -31,6 +36,7 @@ function App() {
         <RecipeSearch
           inputFirstLetter={inputFirstLetter}
           setInputFirstLetter={setInputFirstLetter}
+          data={data}
         />
         <WeekPlanning />
       </div>
