@@ -26,18 +26,13 @@ function App() {
     );
     const response = await data.json();
     setData(response);
-    console.log(response.meals);
   };
 
   return (
     <>
       <div className="app">
         <Header />
-        <RecipeSearch
-          inputFirstLetter={inputFirstLetter}
-          setInputFirstLetter={setInputFirstLetter}
-          data={data}
-        />
+        <RecipeSearch setInputFirstLetter={setInputFirstLetter} data={data} />
         <WeekPlanning />
       </div>
     </>
