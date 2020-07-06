@@ -6,6 +6,7 @@ import WeekPlanning from "./Components/WeekPlanning";
 function App() {
   //Receives the first letter from the input to load the info
   const [inputFirstLetter, setInputFirstLetter] = useState("");
+  console.log(inputFirstLetter);
 
   //Contains the data from the API
   const [data, setData] = useState("");
@@ -26,6 +27,7 @@ function App() {
     );
     const response = await data.json();
     setData(response);
+    console.log(response);
   };
 
   return (

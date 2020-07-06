@@ -36,6 +36,13 @@ code {
   align-items: center;
 }
 
+.RecipeSearch-buttons {
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
 .WeekPlanning {
   width: 100%;
   min-height: 50vh;

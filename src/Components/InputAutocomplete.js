@@ -2,14 +2,18 @@ import React from "react";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 
-export default function FreeSolo({ setInputFirstLetter, data }) {
-  const recipeEvent = (event) => {
-    setInputFirstLetter(event.target.value);
-  };
-
+export default function FreeSolo({
+  setInputFirstLetter,
+  data,
+  isClicked,
+  setSearchText,
+  searchText,
+}) {
   return (
     <div style={{ width: 300 }}>
+      {searchText}
       <Autocomplete
+        onSelect={(event) => setInputFirstLetter(event.target.value)}
         id="free-solo-demo"
         freeSolo
         options={
@@ -21,7 +25,7 @@ export default function FreeSolo({ setInputFirstLetter, data }) {
             label="Search for a recipe"
             margin="normal"
             variant="outlined"
-            onChange={recipeEvent}
+            onChange={(event) => setInputFirstLetter(event.target.value)}
           />
         )}
       />
