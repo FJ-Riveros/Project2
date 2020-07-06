@@ -1,9 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import Input from "./InputAutocomplete.js";
 
-const RecipeSearch = ({ setInputFirstLetter, data }) => {
-  const [searchText, setSearchText] = useState("");
-  const [isClicked, setIsClicked] = useState(false);
+const RecipeSearch = ({
+  setInputFirstLetter,
+  data,
+  setSearchText,
+  searchText,
+}) => {
+  /* searchText !== ""
+    ? data.meals.forEach((recipe) => {
+        if (recipe.strMeal === searchText) {
+          console.log("Funciona");
+        }
+      })
+    : console.log("No funciona");
+*/
   return (
     <>
       <div className="RecipeSearch">
@@ -12,14 +23,13 @@ const RecipeSearch = ({ setInputFirstLetter, data }) => {
           setInputFirstLetter={setInputFirstLetter}
           data={data}
           setSearchText={setSearchText}
-          isClicked={isClicked}
           searchText={searchText}
         />
         <div className="RecipeSearch-buttons">
-          <button onClick={() => setIsClicked(true)}>Search</button>
+          <button>Search</button>
           <button>Random</button>
-          {searchText}
         </div>
+        <div className="RecipeSearch-results"></div>
       </div>
     </>
   );

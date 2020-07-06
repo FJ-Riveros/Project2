@@ -5,7 +5,6 @@ import Autocomplete from "@material-ui/lab/Autocomplete";
 export default function FreeSolo({
   setInputFirstLetter,
   data,
-  isClicked,
   setSearchText,
   searchText,
 }) {
@@ -13,7 +12,7 @@ export default function FreeSolo({
     <div style={{ width: 300 }}>
       {searchText}
       <Autocomplete
-        onSelect={(event) => setInputFirstLetter(event.target.value)}
+        onSelect={(event) => setSearchText(event.target.value)}
         id="free-solo-demo"
         freeSolo
         options={

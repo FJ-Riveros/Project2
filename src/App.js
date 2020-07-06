@@ -11,6 +11,9 @@ function App() {
   //Contains the data from the API
   const [data, setData] = useState("");
 
+  //Contains the selected user option in the input
+  const [searchText, setSearchText] = useState("");
+
   useEffect(() => {
     init();
   }, [inputFirstLetter]);
@@ -34,7 +37,12 @@ function App() {
     <>
       <div className="app">
         <Header />
-        <RecipeSearch setInputFirstLetter={setInputFirstLetter} data={data} />
+        <RecipeSearch
+          setInputFirstLetter={setInputFirstLetter}
+          data={data}
+          searchText={searchText}
+          setSearchText={setSearchText}
+        />
         <WeekPlanning />
       </div>
     </>
