@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Input from "./InputAutocomplete.js";
+import Results from "./Results";
 
 const RecipeSearch = ({
   setInputFirstLetter,
@@ -18,7 +19,7 @@ const RecipeSearch = ({
         index = i;
       }
     }
-    setSearchClick(false);
+    //setSearchClick(false); Replant this to call the component
   };
   //Search trigger
   searchClick === true ? findAlgorithm() : console.log("notClicked");
@@ -39,6 +40,11 @@ const RecipeSearch = ({
           <button>Random</button>
         </div>
         <div className="RecipeSearch-results"></div>
+        {searchClick === true ? (
+          <Results data={data} index={index} />
+        ) : (
+          console.log("Componente fallido")
+        )}
       </div>
     </>
   );
