@@ -39,12 +39,13 @@ const RecipeSearch = ({
           <button onClick={() => setSearchClick(true)}>Search</button>
           <button>Random</button>
         </div>
-        <div className="RecipeSearch-results"></div>
-        {searchClick === true ? (
-          <Results data={data} index={index} />
-        ) : (
-          console.log("Componente fallido")
-        )}
+        <div className="RecipeSearch-results">
+          {searchClick === true ? (
+            <Results data={data} index={index} />
+          ) : (
+            console.log("Componente fallido")
+          )}
+        </div>
       </div>
     </>
   );

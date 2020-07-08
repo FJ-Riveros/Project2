@@ -29,7 +29,7 @@ code {
 }
 
 .RecipeSearch {
-  min-height: 25vh;
+  min-height: 70vh;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -41,6 +41,11 @@ code {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+}
+
+.RecipeSearch-results {
+  display: flex;
+  justify-content: center;
 }
 
 .WeekPlanning {
