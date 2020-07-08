@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Header from "./Components/Header.js";
 import RecipeSearch from "./Components/RecipeSearch";
 import WeekPlanning from "./Components/WeekPlanning";
+import GlobalStyle from "./Components/Styled/GlobalStyles";
 
 function App() {
   //Receives the first letter from the input to load the info
@@ -45,6 +46,7 @@ function App() {
         />
         <WeekPlanning />
       </div>
+      <GlobalStyle />
     </>
   );
 }
