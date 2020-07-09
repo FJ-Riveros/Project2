@@ -1,8 +1,11 @@
 import React from "react";
+import StyleResults from "./Styled/StyledResults";
 
 const Results = ({ data, index }) => {
   return (
-    <img src={data.meals[index].strMealThumb} width="40%" height="auto"></img>
+    <StyleResults>
+      <img src={data.meals[index].strMealThumb} width="40%" height="auto"></img>
+    </StyleResults>
   );
 };
 

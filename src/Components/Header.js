@@ -1,16 +1,17 @@
 import React from "react";
-import StyledHeader from "./Styled/StyledHeader";
+import StyledSectionContainer from "./Styled/StyledSectionContainer";
+import StyledParragraph from "./Styled/StyledParagraph";
 
 const Header = () => {
   return (
     <>
-      <StyledHeader>
+      <StyledSectionContainer>
         <h1>Project 2</h1>
-        <p>
+        <StyledParragraph>
           Labore cupidatat dolor culpa voluptate voluptate elit nisi cillum
           tempor pariatur elit laboris sunt nisi.
-        </p>
-      </StyledHeader>
+        </StyledParragraph>
+      </StyledSectionContainer>
     </>
   );
 };

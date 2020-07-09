@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import Input from "./InputAutocomplete.js";
 import Results from "./Results";
 import SectionTitle from "./Styled/StyledSectionTitle";
-import StyledSectionTitle from "./Styled/StyledSectionTitle";
+import StyledSectionContainer from "./Styled/StyledSectionContainer";
+import Buttons from "./Styled/StyledButtons";
 
 const RecipeSearch = ({
   setInputFirstLetter,
@@ -29,18 +30,18 @@ const RecipeSearch = ({
 
   return (
     <>
-      <div className="RecipeSearch">
-        <StyledSectionTitle>Recipe Search</StyledSectionTitle>
+      <StyledSectionContainer minheight>
+        <SectionTitle>Recipe Search</SectionTitle>
         <Input
           setInputFirstLetter={setInputFirstLetter}
           data={data}
           setSearchText={setSearchText}
           searchText={searchText}
         />
-        <div className="RecipeSearch-buttons">
+        <Buttons>
           <button onClick={() => setSearchClick(true)}>Search</button>
           <button>Random</button>
-        </div>
+        </Buttons>
         <div className="RecipeSearch-results">
           {searchClick === true ? (
             <Results data={data} index={index} />
@@ -48,7 +49,7 @@ const RecipeSearch = ({
             console.log("Componente fallido")
           )}
         </div>
-      </div>
+      </StyledSectionContainer>
     </>
   );
 };
