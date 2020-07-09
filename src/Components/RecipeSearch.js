@@ -22,11 +22,11 @@ const RecipeSearch = ({
         index = i;
       }
     }
-    //setSearchClick(false); Replant this to call the component
+    setSearchClick(false); //Replant this to call the component
   };
+
   //Search trigger
   searchClick === true ? findAlgorithm() : console.log("notClicked");
-  console.log(index);
 
   return (
     <>
