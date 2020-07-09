@@ -1,15 +1,16 @@
 import React from "react";
+import StyledHeader from "./Styled/StyledHeader";
 
 const Header = () => {
   return (
     <>
-      <div className="Header">
+      <StyledHeader>
         <h1>Project 2</h1>
         <p>
           Labore cupidatat dolor culpa voluptate voluptate elit nisi cillum
           tempor pariatur elit laboris sunt nisi.
         </p>
-      </div>
+      </StyledHeader>
     </>
   );
 };

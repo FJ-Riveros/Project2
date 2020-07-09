@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Input from "./InputAutocomplete.js";
 import Results from "./Results";
+import SectionTitle from "./Styled/StyledSectionTitle";
+import StyledSectionTitle from "./Styled/StyledSectionTitle";
 
 const RecipeSearch = ({
   setInputFirstLetter,
@@ -28,7 +30,7 @@ const RecipeSearch = ({
   return (
     <>
       <div className="RecipeSearch">
-        <h2>Recipe Search</h2>
+        <StyledSectionTitle>Recipe Search</StyledSectionTitle>
         <Input
           setInputFirstLetter={setInputFirstLetter}
           data={data}

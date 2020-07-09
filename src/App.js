@@ -3,6 +3,7 @@ import Header from "./Components/Header.js";
 import RecipeSearch from "./Components/RecipeSearch";
 import WeekPlanning from "./Components/WeekPlanning";
 import GlobalStyle from "./Components/Styled/GlobalStyles";
+import StyledApp from "./Components/Styled/StyledApp";
 
 function App() {
   //Receives the first letter from the input to load the info
@@ -36,7 +37,7 @@ function App() {
 
   return (
     <>
-      <div className="app">
+      <StyledApp>
         <Header />
         <RecipeSearch
           setInputFirstLetter={setInputFirstLetter}
@@ -45,7 +46,7 @@ function App() {
           setSearchText={setSearchText}
         />
         <WeekPlanning />
-      </div>
+      </StyledApp>
       <GlobalStyle />
     </>
   );
