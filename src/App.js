@@ -8,7 +8,6 @@ import StyledApp from "./Components/Styled/StyledApp";
 function App() {
   //Receives the first letter from the input to load the info
   const [inputFirstLetter, setInputFirstLetter] = useState("");
-  console.log(inputFirstLetter);
 
   //Contains the data from the API
   const [data, setData] = useState("");

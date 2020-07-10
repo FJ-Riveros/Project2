@@ -3,7 +3,7 @@ import Input from "./InputAutocomplete.js";
 import Results from "./Results";
 import SectionTitle from "./Styled/StyledSectionTitle";
 import StyledSectionContainer from "./Styled/StyledSectionContainer";
-import Buttons from "./Styled/StyledButtons";
+import ButtonsContainer from "./Styled/StyledButtonsContainer";
 
 const RecipeSearch = ({
   setInputFirstLetter,
@@ -13,7 +13,11 @@ const RecipeSearch = ({
 }) => {
   //This variable stores the position of the recipe in the array
   let index;
+
   const [searchClick, setSearchClick] = useState(false);
+
+  //Tracks if there is anything to show in the result
+  const [result, setResult] = useState(false);
 
   //Tracks the answer of the user and matches it with the api response
   const findAlgorithm = () => {
@@ -22,11 +26,12 @@ const RecipeSearch = ({
         index = i;
       }
     }
-    setSearchClick(false); //Replant this to call the component
+    //setResult(true);
+    //setSearchClick(false); //Replant this to call the component
   };
 
   //Search trigger
-  searchClick === true ? findAlgorithm() : console.log("notClicked");
+  searchClick === true && findAlgorithm();
 
   return (
     <>
@@ -38,15 +43,15 @@ const RecipeSearch = ({
           setSearchText={setSearchText}
           searchText={searchText}
         />
-        <Buttons>
+        <ButtonsContainer>
           <button onClick={() => setSearchClick(true)}>Search</button>
           <button>Random</button>
-        </Buttons>
+        </ButtonsContainer>
         <div className="RecipeSearch-results">
-          {searchClick === true ? (
+          {index !== undefined ? (
             <Results data={data} index={index} />
           ) : (
-            console.log("Componente fallido")
+            searchClick === true && "No results found"
           )}
         </div>
       </StyledSectionContainer>
