@@ -1,11 +1,11 @@
 import React from "react";
-import StyleResults from "./Styled/StyledResults";
 
-const Results = ({ data, index }) => {
+//RandomRecipe representarlo teniendo en cuenta un if
+//que se active con el botón random
+
+const Results = ({ data, index, randomRecipe }) => {
   return (
-    <StyleResults>
-      <img src={data.meals[index].strMealThumb} width="40%" height="auto"></img>
-    </StyleResults>
+    <img src={data.meals[index].strMealThumb} width="40%" height="auto"></img>
   );
 };
 

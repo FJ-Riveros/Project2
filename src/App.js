@@ -27,12 +27,14 @@ function App() {
     );
     const aleatoryRecipeData = await randomRecipeFetch.json();
     setRandomRecipe(aleatoryRecipeData);
-    setRandom(false);
     console.log(randomRecipe);
+    setRandom(false);
   };
 
-  //Change the way i do this fetch
-  random === true && randomFetch();
+  //Por qué no funciona la primera vez
+  useEffect(() => {
+    random === true && randomFetch();
+  }, [random]);
 
   useEffect(() => {
     init();
@@ -57,13 +59,13 @@ function App() {
     <>
       <StyledApp>
         <Header />
-        {console.log(random)}
         <RecipeSearch
           setInputFirstLetter={setInputFirstLetter}
           data={data}
           searchText={searchText}
           setSearchText={setSearchText}
           setRandom={setRandom}
+          randomRecipe={randomRecipe}
         />
         <WeekPlanning />
       </StyledApp>
