@@ -4,20 +4,20 @@ import Results from "./Results";
 import SectionTitle from "./Styled/StyledSectionTitle";
 import StyledSectionContainer from "./Styled/StyledSectionContainer";
 import ButtonsContainer from "./Styled/StyledButtonsContainer";
+import StyleResults from "./Styled/StyledResults";
 
 const RecipeSearch = ({
   setInputFirstLetter,
   data,
   setSearchText,
   searchText,
+  setRandom,
 }) => {
   //This variable stores the position of the recipe in the array
   let index;
 
+  //Follows if the search button is clicked
   const [searchClick, setSearchClick] = useState(false);
-
-  //Tracks if there is anything to show in the result
-  const [result, setResult] = useState(false);
 
   //Tracks the answer of the user and matches it with the api response
   const findAlgorithm = () => {
@@ -26,7 +26,7 @@ const RecipeSearch = ({
         index = i;
       }
     }
-    //setResult(true);
+
     //setSearchClick(false); //Replant this to call the component
   };
 
@@ -45,15 +45,15 @@ const RecipeSearch = ({
         />
         <ButtonsContainer>
           <button onClick={() => setSearchClick(true)}>Search</button>
-          <button>Random</button>
+          <button onClick={() => setRandom(true)}>Random</button>
         </ButtonsContainer>
-        <div className="RecipeSearch-results">
+        <StyleResults>
           {index !== undefined ? (
             <Results data={data} index={index} />
           ) : (
             searchClick === true && "No results found"
           )}
-        </div>
+        </StyleResults>
       </StyledSectionContainer>
     </>
   );
