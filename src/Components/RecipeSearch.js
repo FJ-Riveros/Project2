@@ -11,8 +11,8 @@ const RecipeSearch = ({
   data,
   setSearchText,
   searchText,
-  setRandom,
   randomRecipe,
+  randomFetch,
 }) => {
   //This variable stores the position of the recipe in the array
   let index;
@@ -46,8 +46,9 @@ const RecipeSearch = ({
         />
         <ButtonsContainer>
           <button onClick={() => setSearchClick(true)}>Search</button>
-          <button onClick={() => setRandom(true)}>Random</button>
+          <button onClick={() => randomFetch()}>Random</button>
         </ButtonsContainer>
+
         <StyleResults>
           {index !== undefined ? (
             <Results data={data} index={index} randomRecipe={randomRecipe} />

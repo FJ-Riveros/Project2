@@ -15,9 +15,6 @@ function App() {
   //Contains the selected user option in the input
   const [searchText, setSearchText] = useState("");
 
-  //Listens to the random button
-  const [random, setRandom] = useState(false);
-
   //Contains the response from the API for a random recipe
   const [randomRecipe, setRandomRecipe] = useState("");
 
@@ -28,13 +25,14 @@ function App() {
     const aleatoryRecipeData = await randomRecipeFetch.json();
     setRandomRecipe(aleatoryRecipeData);
     console.log(randomRecipe);
-    setRandom(false);
   };
 
+  //llamar a la funcion al hacer click en random, fetch en la misma pag
+  //PROBAR DEBOUNCER EN EL BOTON RANDOM
   //Por qué no funciona la primera vez
-  useEffect(() => {
+  /*useEffect(() => {
     random === true && randomFetch();
-  }, [random]);
+  }, [random]);*/
 
   useEffect(() => {
     init();
@@ -64,8 +62,8 @@ function App() {
           data={data}
           searchText={searchText}
           setSearchText={setSearchText}
-          setRandom={setRandom}
           randomRecipe={randomRecipe}
+          randomFetch={randomFetch}
         />
         <WeekPlanning />
       </StyledApp>
