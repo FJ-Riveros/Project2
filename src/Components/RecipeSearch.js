@@ -20,6 +20,8 @@ const RecipeSearch = ({
   //Follows if the search button is clicked
   const [searchClick, setSearchClick] = useState(false);
 
+  const [buttonchoosed, setButtonChoosed] = useState("");
+
   //Tracks the answer of the user and matches it with the api response
   const findAlgorithm = () => {
     for (let i = 0; i < data.meals.length; i++) {
@@ -34,6 +36,18 @@ const RecipeSearch = ({
   //Search trigger
   searchClick === true && findAlgorithm();
 
+  //Calling multiple events button search
+  const searchButtonEvents = () => {
+    setSearchClick(true);
+    setButtonChoosed("Search");
+  };
+
+  //Calling multiple events button random
+  const randomButtonEvents = () => {
+    randomFetch();
+    setButtonChoosed("Random");
+  };
+
   return (
     <>
       <StyledSectionContainer minheight>
@@ -45,15 +59,19 @@ const RecipeSearch = ({
           searchText={searchText}
         />
         <ButtonsContainer>
-          <button onClick={() => setSearchClick(true)}>Search</button>
-          <button onClick={() => randomFetch()}>Random</button>
+          <button onClick={() => searchButtonEvents()}>Search</button>
+          <button onClick={() => randomButtonEvents()}>Random</button>
         </ButtonsContainer>
-
+        {buttonchoosed}
         <StyleResults>
-          {index !== undefined ? (
-            <Results data={data} index={index} randomRecipe={randomRecipe} />
+          {buttonchoosed === "Search" ? (
+            index !== undefined ? (
+              <Results data={data} index={index} randomRecipe={randomRecipe} />
+            ) : (
+              searchClick === true && "No results found"
+            )
           ) : (
-            searchClick === true && "No results found"
+            <Results data={data} index={index} randomRecipe={randomRecipe} />
           )}
         </StyleResults>
       </StyledSectionContainer>
