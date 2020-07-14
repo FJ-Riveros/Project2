@@ -65,8 +65,13 @@ const RecipeSearch = ({
         {buttonchoosed}
         <StyleResults>
           {buttonchoosed === "Search" ? (
-            index !== undefined ? (
-              <Results data={data} index={index} randomRecipe={randomRecipe} />
+            index !== undefined ? ( //Problema en esta linea, no da tiempo al for a terminar
+              <Results
+                data={data}
+                index={index}
+                randomRecipe={randomRecipe}
+                buttonchoosed={buttonchoosed}
+              />
             ) : (
               searchClick === true && "No results found"
             )
