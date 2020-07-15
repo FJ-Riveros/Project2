@@ -27,13 +27,6 @@ function App() {
     console.log(randomRecipe);
   };
 
-  //llamar a la funcion al hacer click en random, fetch en la misma pag
-  //PROBAR DEBOUNCER EN EL BOTON RANDOM
-  //Por qué no funciona la primera vez
-  /*useEffect(() => {
-    random === true && randomFetch();
-  }, [random]);*/
-
   useEffect(() => {
     inputList();
   }, [inputFirstLetter]);
