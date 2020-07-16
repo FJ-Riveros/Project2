@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Magic } from "magic-sdk";
 import StyledLogin from "./Styled/StyledLogin";
+import StyledSectionContainer from "./Styled/StyledSectionContainer";
 
 const MagicPassword = () => {
   //Check if the user is logged in
@@ -21,6 +22,7 @@ const MagicPassword = () => {
     if (isLoggedIn) {
       /* Get user metadata including email */
       const userMetadata = await magic.user.getMetadata();
+      setUserLogged(true);
     }
   };
 
@@ -39,29 +41,35 @@ const MagicPassword = () => {
   const handleLogout = async () => {
     await magic.user.logout();
     render();
+    setUserLogged(false);
   };
 
   return (
     <>
-      {userLogged ? (
-        <StyledLogin>
-          <h1>Current user: ${userMetadata.email}</h1>
-          <button onclick={() => handleLogout()}>Logout</button>;
-        </StyledLogin>
-      ) : (
-        <StyledLogin>
-          <h1>Please sign up or login</h1>
-          <form onsubmit={(event) => handleLogin(event)}>
-            <input
-              type="email"
-              name="email"
-              required="required"
-              placeholder="Enter your email"
-            />
-            <button type="submit">Send</button>
-          </form>
-        </StyledLogin>
-      )}
+      <StyledSectionContainer>
+        {userLogged ? (
+          <StyledLogin>
+            <h1>
+              Current user:{"Usuario 1"}
+              {/*userMetadata.email*/}
+            </h1>
+            <button onClick={() => handleLogout()}>Logout</button>
+          </StyledLogin>
+        ) : (
+          <StyledLogin>
+            <h1>Please sign up or login</h1>
+            <form onSubmit={(event) => handleLogin(event)}>
+              <input
+                type="email"
+                name="email"
+                required="required"
+                placeholder="Enter your email"
+              />
+              <button type="submit">Send</button>
+            </form>
+          </StyledLogin>
+        )}
+      </StyledSectionContainer>
     </>
   );
 };

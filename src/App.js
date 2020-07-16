@@ -4,6 +4,7 @@ import RecipeSearch from "./Components/RecipeSearch";
 import WeekPlanning from "./Components/WeekPlanning";
 import GlobalStyle from "./Components/Styled/GlobalStyles";
 import StyledApp from "./Components/Styled/StyledApp";
+import MagicPassword from "./Components/MagicPassword";
 
 function App() {
   //Receives the first letter from the input to load the info
@@ -55,6 +56,7 @@ function App() {
           randomFetch={randomFetch}
         />
         <WeekPlanning />
+        <MagicPassword />
       </StyledApp>
       <GlobalStyle />
     </>
