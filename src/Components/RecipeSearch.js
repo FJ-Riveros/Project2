@@ -6,6 +6,7 @@ import StyledSectionContainer from "./Styled/StyledSectionContainer";
 import ButtonsContainer from "./Styled/StyledButtonsContainer";
 import StyleResults from "./Styled/StyledResults";
 import { RandomFetch } from "../APICalls";
+import { FindAlgorithm } from "../Utils";
 
 const RecipeSearch = ({
   setInputFirstLetter,
@@ -13,30 +14,21 @@ const RecipeSearch = ({
   setSearchText,
   searchText,
   randomRecipe,
-  randomFetch,
   setRandomRecipe,
 }) => {
-  //This variable stores the position of the recipe in the array
-  let index;
-
   //Follows if the search button is clicked
   const [searchClick, setSearchClick] = useState(false);
 
   const [buttonchoosed, setButtonChoosed] = useState("");
 
-  //Tracks the answer of the user and matches it with the api response
-  const findAlgorithm = () => {
-    for (let i = 0; i < data.meals.length; i++) {
-      if (data.meals[i].strMeal === searchText) {
-        index = i;
-      }
-    }
+  const [index, setIndex] = useState(undefined);
 
-    //setSearchClick(false); //Replant this to call the component
+  const searchAlgorithmCall = async () => {
+    setIndex(await FindAlgorithm(data, searchText));
   };
 
   //Search trigger
-  searchClick === true && findAlgorithm();
+  searchClick === true && searchAlgorithmCall();
 
   //Calling multiple events button search
   const searchButtonEvents = () => {
