@@ -19,15 +19,6 @@ function App() {
   //Contains the response from the API for a random recipe
   const [randomRecipe, setRandomRecipe] = useState("");
 
-  const randomFetch = async () => {
-    const randomRecipeFetch = await fetch(
-      `https://www.themealdb.com/api/json/v1/1/random.php`
-    );
-    const aleatoryRecipeData = await randomRecipeFetch.json();
-    setRandomRecipe(aleatoryRecipeData);
-    console.log(randomRecipe);
-  };
-
   useEffect(() => {
     inputList();
   }, [inputFirstLetter]);
@@ -53,7 +44,6 @@ function App() {
           searchText={searchText}
           setSearchText={setSearchText}
           randomRecipe={randomRecipe}
-          randomFetch={randomFetch}
           setRandomRecipe={setRandomRecipe}
         />
         <WeekPlanning />

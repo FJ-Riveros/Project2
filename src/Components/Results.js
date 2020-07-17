@@ -6,13 +6,19 @@ import React from "react";
 const Results = ({ data, index, randomRecipe, buttonchoosed }) => {
   return buttonchoosed === "Search" ? (
     index !== undefined ? (
-      <img src={data.meals[index].strMealThumb} width="40%" height="auto"></img>
+      <img
+        src={data.meals[index].strMealThumb}
+        width="40%"
+        height="auto"
+        alt="Random Recipe"
+      ></img>
     ) : (
       console.log("hola")
     )
   ) : (
     randomRecipe !== "" && (
       <img
+        alt="Random Recipe"
         src={randomRecipe.meals[0].strMealThumb}
         width="40%"
         height="auto"
