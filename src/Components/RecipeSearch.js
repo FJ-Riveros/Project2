@@ -5,6 +5,7 @@ import SectionTitle from "./Styled/StyledSectionTitle";
 import StyledSectionContainer from "./Styled/StyledSectionContainer";
 import ButtonsContainer from "./Styled/StyledButtonsContainer";
 import StyleResults from "./Styled/StyledResults";
+import { RandomFetch } from "../APICalls";
 
 const RecipeSearch = ({
   setInputFirstLetter,
@@ -13,6 +14,7 @@ const RecipeSearch = ({
   searchText,
   randomRecipe,
   randomFetch,
+  setRandomRecipe,
 }) => {
   //This variable stores the position of the recipe in the array
   let index;
@@ -43,8 +45,8 @@ const RecipeSearch = ({
   };
 
   //Calling multiple events button random
-  const randomButtonEvents = () => {
-    randomFetch();
+  const randomButtonEvents = async () => {
+    setRandomRecipe(await RandomFetch());
     setButtonChoosed("Random");
   };
 

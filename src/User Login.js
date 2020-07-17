@@ -41,15 +41,15 @@ const UserLogin = () => {
     <>
       <StyledSectionContainer minheight>
         {userLogged ? (
-          <StyledLogin>
+          <>
             <h1>
               Current user:{"Usuario 1"}
               {/*userMetadata.email*/}
             </h1>
             <button onClick={() => handleLogout()}>Logout</button>
-          </StyledLogin>
+          </>
         ) : (
-          <StyledLogin>
+          <>
             <h1>Please sign up or login</h1>
             <form onSubmit={(event) => handleLogin(event)}>
               <input
@@ -60,7 +60,7 @@ const UserLogin = () => {
               />
               <button type="submit">Send</button>
             </form>
-          </StyledLogin>
+          </>
         )}
       </StyledSectionContainer>
     </>

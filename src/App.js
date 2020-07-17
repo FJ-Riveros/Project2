@@ -54,6 +54,7 @@ function App() {
           setSearchText={setSearchText}
           randomRecipe={randomRecipe}
           randomFetch={randomFetch}
+          setRandomRecipe={setRandomRecipe}
         />
         <WeekPlanning />
         <MagicPassword />
