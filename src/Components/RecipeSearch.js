@@ -4,7 +4,6 @@ import Results from "./Results";
 import SectionTitle from "./Styled/StyledSectionTitle";
 import StyledSectionContainer from "./Styled/StyledSectionContainer";
 import ButtonsContainer from "./Styled/StyledButtonsContainer";
-import StyleResults from "./Styled/StyledResults";
 import { RandomFetch } from "../APICalls";
 import { FindAlgorithm } from "../Utils";
 
@@ -60,23 +59,20 @@ const RecipeSearch = ({
           <button onClick={() => searchButtonEvents()}>Search</button>
           <button onClick={() => randomButtonEvents()}>Random</button>
         </ButtonsContainer>
-        {buttonchoosed}
-        <StyleResults>
-          {buttonchoosed === "Search" ? (
-            index !== undefined ? (
-              <Results
-                data={data}
-                index={index}
-                randomRecipe={randomRecipe}
-                buttonchoosed={buttonchoosed}
-              />
-            ) : (
-              searchClick === true && "No results found"
-            )
+        {buttonchoosed === "Search" ? (
+          index !== undefined ? (
+            <Results
+              data={data}
+              index={index}
+              randomRecipe={randomRecipe}
+              buttonchoosed={buttonchoosed}
+            />
           ) : (
-            <Results data={data} index={index} randomRecipe={randomRecipe} />
-          )}
-        </StyleResults>
+            searchClick === true && "No results found"
+          )
+        ) : (
+          <Results data={data} index={index} randomRecipe={randomRecipe} />
+        )}
       </StyledSectionContainer>
     </>
   );
