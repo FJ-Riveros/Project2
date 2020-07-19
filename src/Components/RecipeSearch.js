@@ -15,6 +15,8 @@ const RecipeSearch = ({
   searchText,
   randomRecipe,
   setRandomRecipe,
+  inputFirstLetter,
+  setData,
 }) => {
   //Follows if the search button is clicked
   const [searchClick, setSearchClick] = useState(false);
@@ -48,7 +50,9 @@ const RecipeSearch = ({
         <SectionTitle>Recipe Search</SectionTitle>
         <Input
           setInputFirstLetter={setInputFirstLetter}
+          inputFirstLetter={inputFirstLetter}
           data={data}
+          setData={setData}
           setSearchText={setSearchText}
           searchText={searchText}
         />
@@ -59,7 +63,7 @@ const RecipeSearch = ({
         {buttonchoosed}
         <StyleResults>
           {buttonchoosed === "Search" ? (
-            index !== undefined ? ( //Problema en esta linea, no da tiempo al for a terminar
+            index !== undefined ? (
               <Results
                 data={data}
                 index={index}

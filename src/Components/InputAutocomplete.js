@@ -1,8 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
+import { inputList } from "../APICalls";
 
-export default function FreeSolo({ setInputFirstLetter, data, setSearchText }) {
+export default function FreeSolo({
+  setInputFirstLetter,
+  data,
+  setSearchText,
+  inputFirstLetter,
+  setData,
+}) {
+  const APICalls = async () => {
+    if (inputFirstLetter.length === 1) {
+      setData(await inputList(inputFirstLetter));
+    }
+  };
+
+  useEffect(() => {
+    APICalls();
+  }, [inputFirstLetter]);
+
   return (
     <div style={{ width: 300 }}>
       <Autocomplete
@@ -10,7 +27,7 @@ export default function FreeSolo({ setInputFirstLetter, data, setSearchText }) {
         id="free-solo-demo"
         freeSolo
         options={
-          data === "" ? [] : data.meals.map((options) => options.strMeal)
+          data === undefined ? [] : data.meals.map((options) => options.strMeal)
         }
         renderInput={(params) => (
           <TextField

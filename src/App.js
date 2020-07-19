@@ -11,7 +11,7 @@ function App() {
   const [inputFirstLetter, setInputFirstLetter] = useState("");
 
   //Contains the data from the API
-  const [data, setData] = useState("");
+  const [data, setData] = useState(undefined);
 
   //Contains the selected user option in the input
   const [searchText, setSearchText] = useState("");
@@ -19,7 +19,7 @@ function App() {
   //Contains the response from the API for a random recipe
   const [randomRecipe, setRandomRecipe] = useState("");
 
-  useEffect(() => {
+  /*useEffect(() => {
     inputList();
   }, [inputFirstLetter]);
 
@@ -32,7 +32,7 @@ function App() {
       setData(response);
       console.log(response);
     }
-  };
+  };*/
 
   return (
     <>
@@ -40,7 +40,9 @@ function App() {
         <Header />
         <RecipeSearch
           setInputFirstLetter={setInputFirstLetter}
+          inputFirstLetter={inputFirstLetter}
           data={data}
+          setData={setData}
           searchText={searchText}
           setSearchText={setSearchText}
           randomRecipe={randomRecipe}
