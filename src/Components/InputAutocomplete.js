@@ -11,19 +11,19 @@ export default function FreeSolo({
   setData,
 }) {
   const APICalls = async () => {
-    if (inputFirstLetter.length === 1) {
-      setData(await inputList(inputFirstLetter));
-    }
+    setData(await inputList(inputFirstLetter));
   };
-
   useEffect(() => {
-    APICalls();
+    if (inputFirstLetter.length === 1) {
+      APICalls();
+    }
   }, [inputFirstLetter]);
 
   return (
     <div style={{ width: 300 }}>
       <Autocomplete
         onSelect={(event) => setSearchText(event.target.value)}
+        onChange={(event) => setSearchText(event.target.value)}
         id="free-solo-demo"
         freeSolo
         options={

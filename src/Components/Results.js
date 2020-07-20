@@ -15,7 +15,7 @@ const Results = ({ data, index, randomRecipe, buttonchoosed }) => {
               src={data.meals[index].strMealThumb}
               width="40%"
               height="auto"
-              alt="Random Recipe"
+              alt="Searched Recipe"
             ></img>
           </>
         ) : (
@@ -30,6 +30,7 @@ const Results = ({ data, index, randomRecipe, buttonchoosed }) => {
               src={randomRecipe.meals[0].strMealThumb}
               width="40%"
               height="auto"
+              alt="Random Recipe"
             ></img>
           </>
         )

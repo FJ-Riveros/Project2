@@ -17,23 +17,13 @@ const RecipeSearch = ({
   inputFirstLetter,
   setData,
 }) => {
-  //Follows if the search button is clicked
-  const [searchClick, setSearchClick] = useState(false);
-
   const [buttonchoosed, setButtonChoosed] = useState("");
 
   const [index, setIndex] = useState(undefined);
 
-  const searchAlgorithmCall = async () => {
-    setIndex(await FindAlgorithm(data, searchText));
-  };
-
-  //Search trigger
-  searchClick === true && searchAlgorithmCall();
-
   //Calling multiple events button search
-  const searchButtonEvents = () => {
-    setSearchClick(true);
+  const searchButtonEvents = async () => {
+    setIndex(await FindAlgorithm(data, searchText));
     setButtonChoosed("Search");
   };
 
@@ -68,7 +58,7 @@ const RecipeSearch = ({
               buttonchoosed={buttonchoosed}
             />
           ) : (
-            searchClick === true && "No results found"
+            "No results found"
           )
         ) : (
           <Results data={data} index={index} randomRecipe={randomRecipe} />

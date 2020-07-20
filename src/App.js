@@ -9,7 +9,6 @@ import MagicPassword from "./User Login";
 function App() {
   //Receives the first letter from the input to load the info
   const [inputFirstLetter, setInputFirstLetter] = useState("");
-
   //Contains the data from the API
   const [data, setData] = useState(undefined);
 
