@@ -4,7 +4,7 @@ import Results from "./Results";
 import SectionTitle from "./Styled/StyledSectionTitle";
 import StyledSectionContainer from "./Styled/StyledSectionContainer";
 import ButtonsContainer from "./Styled/StyledButtonsContainer";
-import { RandomFetch } from "../APICalls";
+import { RandomFetch } from "../API/APICalls";
 import { FindAlgorithm } from "../Utils";
 
 const RecipeSearch = ({

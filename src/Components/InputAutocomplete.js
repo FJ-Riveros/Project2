@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
-import { inputList } from "../APICalls";
+import { inputList } from "../API/APICalls";
 
 export default function FreeSolo({
   setInputFirstLetter,
