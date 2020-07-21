@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const routes = require("./Routes");
+const bodyParser = require("body-parser");
 
 //Crear el servidor
 const server = express();
@@ -12,6 +13,10 @@ mongoose.connect("mongodb://localhost/veterinaria", {
   useUnifiedTopology: true,
   useFindAndModify: false,
 });
+
+//Habilitar bodyParser
+server.use(bodyParser.json());
+server.use(bodyParser.urlencoded({ extended: true }));
 
 //Habilitar routing
 server.use("/", routes());
