@@ -8,11 +8,18 @@ const server = express();
 
 //Conectar a mongodb
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost/veterinaria", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useFindAndModify: false,
-});
+mongoose
+  .connect("mongodb://localhost/veterinaria", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+  })
+  .then(() => {
+    console.log("Connected To Mongo Db DataBase");
+  })
+  .catch((err) => {
+    console.log("DataBase Connection Error " + err);
+  });
 
 //Habilitar bodyParser
 server.use(bodyParser.json());
