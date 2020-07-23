@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Header from "./Components/Header.js";
 import RecipeSearch from "./Components/RecipeSearch";
 import WeekPlanning from "./Components/WeekPlanning";
@@ -17,21 +17,6 @@ function App() {
 
   //Contains the response from the API for a random recipe
   const [randomRecipe, setRandomRecipe] = useState("");
-
-  /*useEffect(() => {
-    inputList();
-  }, [inputFirstLetter]);
-
-  const inputList = async () => {
-    if (inputFirstLetter.length === 1) {
-      const data = await fetch(
-        `https://www.themealdb.com/api/json/v1/1/search.php?f=${inputFirstLetter}`
-      );
-      const response = await data.json();
-      setData(response);
-      console.log(response);
-    }
-  };*/
 
   return (
     <>
