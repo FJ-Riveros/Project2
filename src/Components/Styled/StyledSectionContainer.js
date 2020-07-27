@@ -5,8 +5,8 @@ export default styled.div`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  width: 45%;
-  border-radius: 1.5rem;
+  width: 85%;
+  border-radius: 1rem;
   box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.2);
   margin: 40px 0 40px 0;
   background-color: #ffff;
