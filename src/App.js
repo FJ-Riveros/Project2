@@ -22,8 +22,8 @@ function App() {
   return (
     <>
       <Router>
+        <Header />
         <StyledApp>
-          <Header />
           <Route path="/" component={FirstPage} />
           <Route
             path="/RecipeSearch"
