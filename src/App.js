@@ -6,7 +6,7 @@ import GlobalStyle from "./Components/Styled/GlobalStyles";
 import StyledApp from "./Components/Styled/StyledApp";
 import MagicPassword from "./User Login";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
+import FirstPage from "./Components/FirstPage";
 function App() {
   //Receives the first letter from the input to load the info
   const [inputFirstLetter, setInputFirstLetter] = useState("");
@@ -18,28 +18,13 @@ function App() {
 
   //Contains the response from the API for a random recipe
   const [randomRecipe, setRandomRecipe] = useState("");
-  //Ver por qué no funciona el router bien
-  /*<Route
-            path="/RecipeSearch"
-            component={() => (
-              <RecipeSearch
-                setInputFirstLetter={setInputFirstLetter}
-                inputFirstLetter={inputFirstLetter}
-                data={data}
-                setData={setData}
-                searchText={searchText}
-                setSearchText={setSearchText}
-                randomRecipe={randomRecipe}
-                setRandomRecipe={setRandomRecipe}
-              />
-            )}
-          />
- */
+
   return (
     <>
       <Router>
         <StyledApp>
           <Header />
+          <Route path="/" component={FirstPage} />
           <Route
             path="/RecipeSearch"
             render={() => (
@@ -55,8 +40,8 @@ function App() {
               />
             )}
           />
-          <WeekPlanning />
-          <MagicPassword />
+          <Route path="/WeekPlanning" component={WeekPlanning} />
+          <Route path="/MagicPasswordLogin" component={MagicPassword} />
         </StyledApp>
         <GlobalStyle />
       </Router>
