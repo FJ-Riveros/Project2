@@ -40,15 +40,20 @@ function App() {
       <Router>
         <StyledApp>
           <Header />
-          <RecipeSearch
-            setInputFirstLetter={setInputFirstLetter}
-            inputFirstLetter={inputFirstLetter}
-            data={data}
-            setData={setData}
-            searchText={searchText}
-            setSearchText={setSearchText}
-            randomRecipe={randomRecipe}
-            setRandomRecipe={setRandomRecipe}
+          <Route
+            path="/RecipeSearch"
+            render={() => (
+              <RecipeSearch
+                setInputFirstLetter={setInputFirstLetter}
+                inputFirstLetter={inputFirstLetter}
+                data={data}
+                setData={setData}
+                searchText={searchText}
+                setSearchText={setSearchText}
+                randomRecipe={randomRecipe}
+                setRandomRecipe={setRandomRecipe}
+              />
+            )}
           />
           <WeekPlanning />
           <MagicPassword />
