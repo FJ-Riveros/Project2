@@ -5,6 +5,7 @@ import WeekPlanning from "./Components/WeekPlanning";
 import GlobalStyle from "./Components/Styled/GlobalStyles";
 import StyledApp from "./Components/Styled/StyledApp";
 import MagicPassword from "./User Login";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   //Receives the first letter from the input to load the info
@@ -17,25 +18,43 @@ function App() {
 
   //Contains the response from the API for a random recipe
   const [randomRecipe, setRandomRecipe] = useState("");
-
+  //Ver por qué no funciona el router bien
+  /*<Route
+            path="/RecipeSearch"
+            component={() => (
+              <RecipeSearch
+                setInputFirstLetter={setInputFirstLetter}
+                inputFirstLetter={inputFirstLetter}
+                data={data}
+                setData={setData}
+                searchText={searchText}
+                setSearchText={setSearchText}
+                randomRecipe={randomRecipe}
+                setRandomRecipe={setRandomRecipe}
+              />
+            )}
+          />
+ */
   return (
     <>
-      <StyledApp>
-        <Header />
-        <RecipeSearch
-          setInputFirstLetter={setInputFirstLetter}
-          inputFirstLetter={inputFirstLetter}
-          data={data}
-          setData={setData}
-          searchText={searchText}
-          setSearchText={setSearchText}
-          randomRecipe={randomRecipe}
-          setRandomRecipe={setRandomRecipe}
-        />
-        <WeekPlanning />
-        <MagicPassword />
-      </StyledApp>
-      <GlobalStyle />
+      <Router>
+        <StyledApp>
+          <Header />
+          <RecipeSearch
+            setInputFirstLetter={setInputFirstLetter}
+            inputFirstLetter={inputFirstLetter}
+            data={data}
+            setData={setData}
+            searchText={searchText}
+            setSearchText={setSearchText}
+            randomRecipe={randomRecipe}
+            setRandomRecipe={setRandomRecipe}
+          />
+          <WeekPlanning />
+          <MagicPassword />
+        </StyledApp>
+        <GlobalStyle />
+      </Router>
     </>
   );
 }

@@ -20,7 +20,7 @@ export default function FreeSolo({
   }, [inputFirstLetter]);
 
   return (
-    <div style={{ width: 300 }}>
+    <div style={{ width: 200 }}>
       <Autocomplete
         onSelect={(event) => setSearchText(event.target.value)}
         onChange={(event) => setSearchText(event.target.value)}

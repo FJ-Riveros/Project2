@@ -49,19 +49,13 @@ const RecipeSearch = ({
           <button onClick={() => searchButtonEvents()}>Search</button>
           <button onClick={() => randomButtonEvents()}>Random</button>
         </ButtonsContainer>
-        {buttonchoosed === "Search" ? (
-          index !== undefined ? (
-            <Results
-              data={data}
-              index={index}
-              randomRecipe={randomRecipe}
-              buttonchoosed={buttonchoosed}
-            />
-          ) : (
-            "No results found"
-          )
-        ) : (
-          <Results data={data} index={index} randomRecipe={randomRecipe} />
+        {buttonchoosed !== "" && (
+          <Results
+            data={data}
+            index={index}
+            randomRecipe={randomRecipe}
+            buttonchoosed={buttonchoosed}
+          />
         )}
       </StyledSectionContainer>
     </>
