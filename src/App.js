@@ -24,24 +24,26 @@ function App() {
       <Router>
         <Header />
         <StyledApp>
-          <Route path="/" component={FirstPage} />
-          <Route
-            path="/RecipeSearch"
-            render={() => (
-              <RecipeSearch
-                setInputFirstLetter={setInputFirstLetter}
-                inputFirstLetter={inputFirstLetter}
-                data={data}
-                setData={setData}
-                searchText={searchText}
-                setSearchText={setSearchText}
-                randomRecipe={randomRecipe}
-                setRandomRecipe={setRandomRecipe}
-              />
-            )}
-          />
-          <Route path="/WeekPlanning" component={WeekPlanning} />
-          <Route path="/MagicPasswordLogin" component={MagicPassword} />
+          <Switch>
+            <Route path="/" exact component={FirstPage} />
+            <Route
+              path="/RecipeSearch"
+              render={() => (
+                <RecipeSearch
+                  setInputFirstLetter={setInputFirstLetter}
+                  inputFirstLetter={inputFirstLetter}
+                  data={data}
+                  setData={setData}
+                  searchText={searchText}
+                  setSearchText={setSearchText}
+                  randomRecipe={randomRecipe}
+                  setRandomRecipe={setRandomRecipe}
+                />
+              )}
+            />
+            <Route path="/WeekPlanning" component={WeekPlanning} />
+            <Route path="/MagicPasswordLogin" component={MagicPassword} />
+          </Switch>
         </StyledApp>
         <GlobalStyle />
       </Router>
