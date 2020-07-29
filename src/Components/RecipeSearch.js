@@ -23,7 +23,7 @@ const RecipeSearch = ({
 
   //Calling multiple events button search
   const searchButtonEvents = async () => {
-    setIndex(await FindAlgorithm(data, searchText));
+    data !== undefined && setIndex(await FindAlgorithm(data, searchText));
     setButtonChoosed("Search");
   };
 
