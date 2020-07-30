@@ -1,3 +1,4 @@
+const urlDirectory = require("./url");
 const express = require("express");
 const mongoose = require("mongoose");
 const routes = require("./Routes");
@@ -9,14 +10,11 @@ const server = express();
 //Conectar a mongodb
 mongoose.Promise = global.Promise;
 mongoose
-  .connect(
-    " mongodb+srv://FJ-Riveros:fmT6OxS8drLk20xf@cluster0.tuclt.mongodb.net/veterinaria?retryWrites=true&w=majority",
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useFindAndModify: false,
-    }
-  )
+  .connect(urlDirectory.url, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+  })
   .then(() => {
     console.log("Connected To Mongo Db DataBase");
   })
