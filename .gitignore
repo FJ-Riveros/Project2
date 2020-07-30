@@ -4,7 +4,8 @@
 /node_modules
 /.pnp
 .pnp.js
-src\API\url.js
+/src/API/url.js
+
 
 
 # testing
