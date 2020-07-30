@@ -5,7 +5,7 @@ import SectionTitle from "./Styled/StyledSectionTitle";
 import StyledSectionContainer from "./Styled/StyledSectionContainer";
 import ButtonsContainer from "./Styled/StyledButtonsContainer";
 import { RandomFetch } from "../API/APICalls";
-import { FindAlgorithm } from "../Utils";
+import { FindAlgorithm, HomeButton } from "../Utils";
 
 const RecipeSearch = ({
   setInputFirstLetter,
@@ -58,6 +58,7 @@ const RecipeSearch = ({
           />
         )}
       </StyledSectionContainer>
+      <HomeButton />
     </>
   );
 };

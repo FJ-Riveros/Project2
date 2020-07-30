@@ -1,3 +1,5 @@
+import React from "react";
+import { Link } from "react-router-dom";
 //Tracks the answer of the user and matches it with the api response
 export const FindAlgorithm = async (data, searchText) => {
   for (let i = 0; i < data.meals.length; i++) {
@@ -6,3 +8,9 @@ export const FindAlgorithm = async (data, searchText) => {
     }
   }
 };
+
+export const HomeButton = () => (
+  <Link to="/">
+    <button>Home</button>
+  </Link>
+);

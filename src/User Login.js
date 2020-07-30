@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Magic } from "magic-sdk";
 import StyledLogin from "./Components/Styled/StyledLogin";
 import StyledSectionContainer from "./Components/Styled/StyledSectionContainer";
-
+import { HomeButton } from "./Utils";
 const UserLogin = ({ userLogged, setUserLogged }) => {
   //API Key
   const magic = new Magic("pk_test_EA95F9581FBBBD21");
@@ -60,6 +60,7 @@ const UserLogin = ({ userLogged, setUserLogged }) => {
           </>
         )}
       </StyledSectionContainer>
+      <HomeButton />
     </>
   );
 };
