@@ -9,11 +9,14 @@ const server = express();
 //Conectar a mongodb
 mongoose.Promise = global.Promise;
 mongoose
-  .connect("mongodb://localhost/veterinaria", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-  })
+  .connect(
+    " mongodb+srv://FJ-Riveros:fmT6OxS8drLk20xf@cluster0.tuclt.mongodb.net/veterinaria?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useFindAndModify: false,
+    }
+  )
   .then(() => {
     console.log("Connected To Mongo Db DataBase");
   })
