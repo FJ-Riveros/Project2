@@ -19,10 +19,13 @@ function App() {
   //Contains the response from the API for a random recipe
   const [randomRecipe, setRandomRecipe] = useState("");
 
+  //Check if the user is logged in to load the correct interface
+  const [userLogged, setUserLogged] = useState(false);
+
   return (
     <>
       <Router>
-        <Header />
+        <Header userLogged={userLogged} />
         <StyledApp>
           <Switch>
             <Route path="/" exact component={FirstPage} />
@@ -42,7 +45,15 @@ function App() {
               )}
             />
             <Route path="/WeekPlanning" component={WeekPlanning} />
-            <Route path="/MagicPasswordLogin" component={MagicPassword} />
+            <Route
+              path="/MagicPasswordLogin"
+              component={() => (
+                <MagicPassword
+                  userLogged={userLogged}
+                  setUserLogged={setUserLogged}
+                />
+              )}
+            />
           </Switch>
         </StyledApp>
         <GlobalStyle />

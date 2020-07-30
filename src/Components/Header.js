@@ -10,7 +10,8 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormGroup from "@material-ui/core/FormGroup";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
+import AccountBoxTwoToneIcon from "@material-ui/icons/AccountBoxTwoTone";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,9 +25,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function MenuAppBar() {
+export default function MenuAppBar({ userLogged }) {
   const classes = useStyles();
-  const [auth, setAuth] = React.useState(true);
+  const [auth, setAuth] = React.useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
@@ -45,7 +46,7 @@ export default function MenuAppBar() {
           <Typography variant="h6" className={classes.title}>
             Project2
           </Typography>
-          {auth && (
+          {userLogged ? (
             <div>
               <IconButton
                 aria-label="account of current user"
@@ -75,6 +76,12 @@ export default function MenuAppBar() {
                 <MenuItem onClick={handleClose}>My account</MenuItem>
               </Menu>
             </div>
+          ) : (
+            <Link to="/MagicPasswordLogin">
+              <IconButton>
+                <AccountBoxTwoToneIcon />
+              </IconButton>
+            </Link>
           )}
         </Toolbar>
       </AppBar>
