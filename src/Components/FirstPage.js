@@ -6,7 +6,6 @@ const firstPage = () => {
   return (
     <>
       <StyledSectionContainer minheight>
-        <h1>Project 2</h1>
         <StyledFirstPage>
           <Link to="/RecipeSearch">
             <button>Recipe Search</button>

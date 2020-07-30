@@ -10,6 +10,7 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormGroup from "@material-ui/core/FormGroup";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
+import { Link } from "react-router";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,10 +30,6 @@ export default function MenuAppBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
-  const handleChange = (event) => {
-    setAuth(event.target.checked);
-  };
-
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -43,18 +40,6 @@ export default function MenuAppBar() {
 
   return (
     <div className={classes.root}>
-      <FormGroup>
-        <FormControlLabel
-          control={
-            <Switch
-              checked={auth}
-              onChange={handleChange}
-              aria-label="login switch"
-            />
-          }
-          label={auth ? "Logout" : "Login"}
-        />
-      </FormGroup>
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
@@ -86,7 +71,7 @@ export default function MenuAppBar() {
                 open={open}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
+                <MenuItem onClick={handleClose}>Login</MenuItem>
                 <MenuItem onClick={handleClose}>My account</MenuItem>
               </Menu>
             </div>
