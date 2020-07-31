@@ -11,7 +11,7 @@ import FormGroup from "@material-ui/core/FormGroup";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import { Link } from "react-router-dom";
-import AccountBoxTwoToneIcon from "@material-ui/icons/AccountBoxTwoTone";
+// import AccountBoxTwoToneIcon from "@material-ui/icons/AccountBoxTwoTone";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -78,7 +78,9 @@ export default function MenuAppBar({ userLogged }) {
           ) : (
             <Link to="/MagicPasswordLogin">
               <IconButton>
-                <AccountBoxTwoToneIcon />
+                <Typography variant="h6" className={classes.title}>
+                  Login
+                </Typography>
               </IconButton>
             </Link>
           )}
