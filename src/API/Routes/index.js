@@ -25,13 +25,18 @@ module.exports = function () {
     }
   });
 
-  router.delete("/deleteuser", async (req, res) => {
+  router.delete("/deleteuser:userId", async (req, res) => {
     try {
-      const Posts = await Post.deleteMany();
+      const Posts = await Post.findByIdAndDelete(req.params.userId);
+      res.json({ message: "The user was deleted succesfuly" });
     } catch (error) {
       res.json({ message: error });
     }
   });
+
+  // router.update("/updateuser", async (req, res) => {
+  //   const Posts = await Post.findByIdAndUpdate();
+  // });
 
   return router;
 };
