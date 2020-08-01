@@ -1,5 +1,5 @@
 const pacientes = require("../Models/User.js");
-
+const listaUsuarios = require("../")
 //Cuando se crea un nuevo cliente
 exports.nuevoUsuario = async (req, res, next) => {
   //Crear obeto de usuario
