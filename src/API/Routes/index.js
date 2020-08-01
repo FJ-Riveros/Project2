@@ -34,9 +34,16 @@ module.exports = function () {
     }
   });
 
-  // router.update("/updateuser", async (req, res) => {
-  //   const Posts = await Post.findByIdAndUpdate();
-  // });
+  router.patch("/updateuser:userId", async (req, res) => {
+    try {
+      const updatedUser = await Post.findByIdAndUpdate(req.params.userId, {
+        $set: { nombre: req.body.nombre },
+      });
+      res.json({ updatedUser });
+    } catch (error) {
+      res.json({ message: error });
+    }
+  });
 
   return router;
 };
