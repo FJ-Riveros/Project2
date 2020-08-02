@@ -1,25 +1,24 @@
 const express = require("express");
 const router = express.Router();
 const usuarioController = require("../Controllers/UserController");
-const Post = require("../Models/User");
+const Model = require("../Models/User");
 
 module.exports = function () {
-  //Agrega nuevos pacientes via POST
   router.post("/adduser", usuarioController.nuevoUsuario);
 
   router.get("/getusers", async (req, res) => {
     try {
-      const Posts = await Post.find();
-      res.json(Posts);
+      const userList = await Model.find();
+      res.json(userList);
     } catch (error) {
       res.json({ message: error });
     }
   });
 
-  router.get("/:postId", async (req, res) => {
+  router.get("/searchuser:userId", async (req, res) => {
     try {
-      const Posts = await Post.findById(req.params.postId);
-      res.json(Posts);
+      const getSingleUser = await Model.findById(req.params.userId);
+      res.json(getSingleUser);
     } catch (error) {
       res.json({ message: error });
     }
@@ -27,8 +26,10 @@ module.exports = function () {
 
   router.delete("/deleteuser:userId", async (req, res) => {
     try {
-      const Posts = await Post.findByIdAndDelete(req.params.userId);
-      res.json({ message: "The user was deleted succesfuly" });
+      const deleteUSer = await Model.findByIdAndDelete(req.params.userId);
+      res.json({
+        message: `The user ${req.params.userId} was succesfuly deleted `,
+      });
     } catch (error) {
       res.json({ message: error });
     }
@@ -36,7 +37,7 @@ module.exports = function () {
 
   router.patch("/updateuser:userId", async (req, res) => {
     try {
-      const updatedUser = await Post.findByIdAndUpdate(req.params.userId, {
+      const updatedUser = await Model.findByIdAndUpdate(req.params.userId, {
         $set: { nombre: req.body.nombre },
       });
       res.json({ updatedUser });
