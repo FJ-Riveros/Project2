@@ -1,5 +1,4 @@
 const userModel = require("../Models/User.js");
-const listaUsuarios = require("../");
 
 exports.addUser = async (req, res, next) => {
   const newUser = new userModel(req.body);
