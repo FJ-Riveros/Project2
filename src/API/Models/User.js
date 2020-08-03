@@ -2,23 +2,27 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-  nombre: {
+  name: {
     type: String,
     trim: true,
   },
-  propietario: {
+  surname: {
     type: String,
     trim: true,
   },
-  fecha: {
+  age: {
     type: String,
     trim: true,
   },
-  hora: {
+  lastRecipes: {
     type: String,
     trim: true,
   },
-  sintomas: {
+  weekSchedule: {
+    type: String,
+    trim: true,
+  },
+  favorites: {
     type: String,
     trim: true,
   },
