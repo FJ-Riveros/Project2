@@ -43,7 +43,14 @@ exports.deleteSingleUser = async (req, res) => {
 exports.updateSingleUser = async (req, res) => {
   try {
     const updatedUser = await userModel.findByIdAndUpdate(req.params.userId, {
-      $set: { nombre: req.body.nombre },
+      $set: {
+        name: req.body.name,
+        surname: req.body.surname,
+        age: req.body.age,
+        lastRecipes: req.body.lastRecipes,
+        weekSchedule: req.body.weekSchedule,
+        favorites: req.body.favorites,
+      },
     });
     res.json({ updatedUser });
   } catch (error) {
