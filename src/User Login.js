@@ -3,9 +3,10 @@ import { Magic } from "magic-sdk";
 import StyledLogin from "./Components/Styled/StyledLogin";
 import StyledSectionContainer from "./Components/Styled/StyledSectionContainer";
 import { HomeButton } from "./Utils";
+import { magicKey } from "./API/hidden";
 const UserLogin = ({ userLogged, setUserLogged }) => {
   //API Key
-  const magic = new Magic("pk_test_EA95F9581FBBBD21");
+  const magic = new Magic(magicKey);
 
   useEffect(() => {
     render();
