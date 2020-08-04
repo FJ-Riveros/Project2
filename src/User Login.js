@@ -4,6 +4,7 @@ import StyledLogin from "./Components/Styled/StyledLogin";
 import StyledSectionContainer from "./Components/Styled/StyledSectionContainer";
 import { HomeButton } from "./Utils";
 import { magicKey } from "./API/hidden";
+
 const UserLogin = ({ userLogged, setUserLogged }) => {
   //API Key
   const magic = new Magic(magicKey);
@@ -48,8 +49,9 @@ const UserLogin = ({ userLogged, setUserLogged }) => {
           </>
         ) : (
           <>
-            <h1>Please sign up or login</h1>
+            <h1>Login</h1>
             <form onSubmit={(event) => handleLogin(event)}>
+              <input placeholder="Enter your username" />
               <input
                 type="email"
                 name="email"
@@ -58,6 +60,7 @@ const UserLogin = ({ userLogged, setUserLogged }) => {
               />
               <button type="submit">Send</button>
             </form>
+            <button>Register now</button>
           </>
         )}
       </StyledSectionContainer>
