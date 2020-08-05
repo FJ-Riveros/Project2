@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./Components/Header.js";
 import RecipeSearch from "./Components/RecipeSearch";
 import WeekPlanning from "./Components/WeekPlanning";
@@ -22,6 +22,22 @@ function App() {
   //Check if the user is logged in to load the correct interface
   const [userLogged, setUserLogged] = useState(false);
 
+  useEffect(() => {
+    // const prueba = () => {
+    //   process.env.REACT_APP_BACKEND_URL.get("/getusers")
+    //     .then((respuesta) => console.log(respuesta))
+    //     .catch((err) => {
+    //       console.log(err);
+    //     });
+    // };
+    // prueba();
+    const prueba1 = () => {
+      fetch(`${process.env.REACT_APP_BACKEND_URL}/getusers`)
+        .then((response) => response.json())
+        .then((data) => console.log(data));
+    };
+    prueba1();
+  }, []);
   return (
     <>
       <Router>
