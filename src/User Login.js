@@ -4,6 +4,7 @@ import StyledLogin from "./Components/Styled/StyledLogin";
 import StyledSectionContainer from "./Components/Styled/StyledSectionContainer";
 import { HomeButton } from "./Utils";
 import { magicKey } from "./API/hidden";
+import { Link } from "react-router-dom";
 
 const UserLogin = ({ userLogged, setUserLogged }) => {
   //API Key
@@ -60,7 +61,9 @@ const UserLogin = ({ userLogged, setUserLogged }) => {
               />
               <button type="submit">Send</button>
             </form>
-            <button>Register now</button>
+            <Link to="/Register">
+              <button>Register now</button>
+            </Link>
           </>
         )}
       </StyledSectionContainer>

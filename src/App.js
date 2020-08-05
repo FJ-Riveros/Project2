@@ -7,6 +7,7 @@ import StyledApp from "./Components/Styled/StyledApp";
 import MagicPassword from "./User Login";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import FirstPage from "./Components/FirstPage";
+import Register from "./Components/Register";
 function App() {
   //Receives the first letter from the input to load the info
   const [inputFirstLetter, setInputFirstLetter] = useState("");
@@ -23,14 +24,6 @@ function App() {
   const [userLogged, setUserLogged] = useState(false);
 
   useEffect(() => {
-    // const prueba = () => {
-    //   process.env.REACT_APP_BACKEND_URL.get("/getusers")
-    //     .then((respuesta) => console.log(respuesta))
-    //     .catch((err) => {
-    //       console.log(err);
-    //     });
-    // };
-    // prueba();
     const prueba1 = () => {
       fetch(`${process.env.REACT_APP_BACKEND_URL}/getusers`)
         .then((response) => response.json())
@@ -70,6 +63,7 @@ function App() {
                 />
               )}
             />
+            <Route path="/Register" component={Register} />
           </Switch>
         </StyledApp>
         <GlobalStyle />
