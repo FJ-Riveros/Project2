@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
+import { getMaxListeners } from "../API/Models/User";
 
 const Register = () => {
   const [formdata, setFormData] = useState({
@@ -7,11 +8,16 @@ const Register = () => {
     age: "",
   });
   const createUser = (e) => {
-    setFormData(...formdata, ([e.target.name] = e.target.value));
+    setFormData({ ...formdata, [e.target.name]: e.target.value });
+    console.log(formdata);
   };
 
   const submitNewUser = (e) => {
     e.preventDefault();
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/adduser`, {
+      method: "POST",
+      body: JSON.stringify(formdata),
+    }).then((response) => console.log(response));
   };
   return (
     <>
