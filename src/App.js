@@ -4,7 +4,7 @@ import RecipeSearch from "./Components/RecipeSearch";
 import WeekPlanning from "./Components/WeekPlanning";
 import GlobalStyle from "./Components/Styled/GlobalStyles";
 import StyledApp from "./Components/Styled/StyledApp";
-import MagicPassword from "./User Login";
+import UserLogin from "./Components/User Login";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import FirstPage from "./Components/FirstPage";
 import Register from "./Components/Register";
@@ -57,7 +57,7 @@ function App() {
             <Route
               path="/MagicPasswordLogin"
               component={() => (
-                <MagicPassword
+                <UserLogin
                   userLogged={userLogged}
                   setUserLogged={setUserLogged}
                 />

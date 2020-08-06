@@ -1,7 +1,6 @@
-import React, { useState, Fragment } from "react";
-import { getMaxListeners } from "../API/Models/User";
+import React, { useState } from "react";
 
-const Register = () => {
+const Register = (props) => {
   const [formdata, setFormData] = useState({
     username: "",
     email: "",
@@ -21,7 +20,10 @@ const Register = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(formdata),
-    }).then((response) => console.log(response));
+    }).then((response) => {
+      console.log(response);
+      props.history.push("/");
+    });
   };
   return (
     <>
