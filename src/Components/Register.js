@@ -16,6 +16,10 @@ const Register = () => {
     e.preventDefault();
     fetch(`${process.env.REACT_APP_BACKEND_URL}/adduser`, {
       method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify(formdata),
     }).then((response) => console.log(response));
   };
