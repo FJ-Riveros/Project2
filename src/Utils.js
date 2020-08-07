@@ -14,3 +14,15 @@ export const HomeButton = () => (
     <button>Home</button>
   </Link>
 );
+
+export const validateUserAlgorithm = (usersDb, userInput) => {
+  for (let i = 0; i < usersDb.length; i++) {
+    if (
+      userInput.username === usersDb[i].username &&
+      userInput.email === usersDb[i].email
+    ) {
+      return true;
+    }
+  }
+  return false;
+};

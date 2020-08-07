@@ -5,10 +5,16 @@ import StyledSectionContainer from "./Styled/StyledSectionContainer";
 import { HomeButton } from "../Utils";
 import { magicKey } from "../API/hidden";
 import { Link } from "react-router-dom";
+import { validateUserAlgorithm } from "../Utils";
 
 const UserLogin = ({ userLogged, setUserLogged }) => {
   //API Key
   const magic = new Magic(magicKey);
+
+  const [userInput, setUserInput] = useState({
+    username: "",
+    email: "",
+  });
 
   useEffect(() => {
     render();
@@ -37,6 +43,21 @@ const UserLogin = ({ userLogged, setUserLogged }) => {
     setUserLogged(false);
   };
 
+  const userCredentials = (e) => {
+    setUserInput({
+      ...userInput,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const validateUser = (e) => {
+    e.preventDefault();
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/getusers`)
+      .then((response) => response.json())
+      .then((usersDb) => {
+        validateUserAlgorithm(usersDb, userInput);
+      });
+  };
   return (
     <>
       <StyledSectionContainer minheight>
@@ -51,13 +72,19 @@ const UserLogin = ({ userLogged, setUserLogged }) => {
         ) : (
           <>
             <h1>Login</h1>
-            <form onSubmit={(event) => handleLogin(event)}>
-              <input placeholder="Enter your username" />
+            <form onSubmit={(event) => validateUser(event)}>
+              <input
+                placeholder="Enter your username"
+                name="username"
+                required="required"
+                onChange={userCredentials}
+              />
               <input
                 type="email"
                 name="email"
                 required="required"
                 placeholder="Enter your email"
+                onChange={userCredentials}
               />
               <button type="submit">Send</button>
             </form>
