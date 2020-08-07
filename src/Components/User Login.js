@@ -30,7 +30,6 @@ const UserLogin = ({ userLogged, setUserLogged }) => {
 
   const handleLogin = async () => {
     const email = userInput.email;
-    // const email = new FormData(e.target).get("email");
     if (email) {
       await magic.auth.loginWithMagicLink({ email });
       render();
@@ -65,10 +64,7 @@ const UserLogin = ({ userLogged, setUserLogged }) => {
       <StyledSectionContainer minheight>
         {userLogged ? (
           <>
-            <h1>
-              Current user:{"Usuario 1"}
-              {/*userMetadata.email*/}
-            </h1>
+            <h1>Current user:{"Usuario 1"}</h1>
             <button onClick={() => handleLogout()}>Logout</button>
           </>
         ) : (
@@ -102,4 +98,3 @@ const UserLogin = ({ userLogged, setUserLogged }) => {
 };
 
 export default UserLogin;
-//USERMETADATA MODIFY

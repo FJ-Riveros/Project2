@@ -15,6 +15,8 @@ export const HomeButton = () => (
   </Link>
 );
 
+/*Checks if the user input matches with the user stored in the database
+  this algorith applies for the login and register*/
 export const validateUserAlgorithm = (usersDb, userInput) => {
   for (let i = 0; i < usersDb.length; i++) {
     if (
