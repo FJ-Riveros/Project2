@@ -28,9 +28,9 @@ const UserLogin = ({ userLogged, setUserLogged }) => {
     }
   };
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    const email = new FormData(e.target).get("email");
+  const handleLogin = async () => {
+    const email = userInput.email;
+    // const email = new FormData(e.target).get("email");
     if (email) {
       await magic.auth.loginWithMagicLink({ email });
       render();
@@ -55,7 +55,9 @@ const UserLogin = ({ userLogged, setUserLogged }) => {
     fetch(`${process.env.REACT_APP_BACKEND_URL}/getusers`)
       .then((response) => response.json())
       .then((usersDb) => {
-        validateUserAlgorithm(usersDb, userInput);
+        validateUserAlgorithm(usersDb, userInput)
+          ? handleLogin()
+          : console.log("wrong user or password");
       });
   };
   return (
