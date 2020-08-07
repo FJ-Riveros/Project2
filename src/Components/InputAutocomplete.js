@@ -10,10 +10,10 @@ export default function FreeSolo({
   inputFirstLetter,
   setData,
 }) {
-  const APICalls = async () => {
-    setData(await inputList(inputFirstLetter));
-  };
   useEffect(() => {
+    const APICalls = async () => {
+      setData(await inputList(inputFirstLetter));
+    };
     if (inputFirstLetter.length === 1) {
       APICalls();
     }

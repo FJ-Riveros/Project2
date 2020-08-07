@@ -21,13 +21,11 @@ const RecipeSearch = ({
 
   const [index, setIndex] = useState(undefined);
 
-  //Calling multiple events button search
   const searchButtonEvents = async () => {
     data !== undefined && setIndex(await FindAlgorithm(data, searchText));
     setButtonChoosed("Search");
   };
 
-  //Calling multiple events button random
   const randomButtonEvents = async () => {
     setRandomRecipe(await RandomFetch());
     setButtonChoosed("Random");
