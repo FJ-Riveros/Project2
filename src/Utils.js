@@ -37,3 +37,12 @@ export const validateUserNameAlgorithm = (usersDb, formData) => {
   }
   return false;
 };
+
+export const validateEmailAlgorithm = (usersDb, formData) => {
+  for (let i = 0; i < usersDb.length; i++) {
+    if (formData.email === usersDb[i].email) {
+      return true;
+    }
+  }
+  return false;
+};

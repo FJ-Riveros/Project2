@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { registerUser, getUsers } from "../APICalls";
-import { validateUserNameAlgorithm } from "../Utils";
+import { validateUserNameAlgorithm, validateEmailAlgorithm } from "../Utils";
 
 const Register = (props) => {
   const [formdata, setFormData] = useState({
@@ -25,6 +25,13 @@ const Register = (props) => {
       ? console.log("The username already exists")
       : console.log("Correct");
   };
+
+  const emailCheck = async () => {
+    const usersDb = await getUsers();
+    validateEmailAlgorithm(usersDb, formdata)
+      ? console.log("The email already exists")
+      : console.log("Correct");
+  };
   return (
     <>
       <h1>Register</h1>
@@ -42,6 +49,7 @@ const Register = (props) => {
           required="required"
           placeholder="Enter your email"
           onChange={createUser}
+          onPointerOut={emailCheck}
         />
         <input
           placeholder="Enter your age"
