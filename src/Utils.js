@@ -28,3 +28,12 @@ export const validateUserAlgorithm = (usersDb, userInput) => {
   }
   return false;
 };
+
+export const validateUserNameAlgorithm = (usersDb, formData) => {
+  for (let i = 0; i < usersDb.length; i++) {
+    if (formData.username === usersDb[i].username) {
+      return true;
+    }
+  }
+  return false;
+};

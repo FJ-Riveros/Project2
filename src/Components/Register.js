@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { registerUser } from "../APICalls";
+import { registerUser, getUsers } from "../APICalls";
+import { validateUserNameAlgorithm } from "../Utils";
 
 const Register = (props) => {
   const [formdata, setFormData] = useState({
@@ -16,17 +17,13 @@ const Register = (props) => {
     e.preventDefault();
     registerUser(formdata);
     props.history.push("/");
-    // fetch(`${process.env.REACT_APP_BACKEND_URL}/adduser`, {
-    //   method: "POST",
-    //   headers: {
-    //     Accept: "application/json",
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(formdata),
-    // }).then((response) => {
-    //   console.log(response);
-    //   props.history.push("/");
-    // });
+  };
+
+  const usernameCheck = async () => {
+    const usersDb = await getUsers();
+    validateUserNameAlgorithm(usersDb, formdata)
+      ? console.log("The username already exists")
+      : console.log("Correct");
   };
   return (
     <>
@@ -37,6 +34,7 @@ const Register = (props) => {
           name="username"
           required="required"
           onChange={createUser}
+          onPointerOut={usernameCheck}
         />
         <input
           type="email"
