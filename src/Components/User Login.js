@@ -6,6 +6,7 @@ import { HomeButton } from "../Utils";
 import { magicKey } from "../API/hidden";
 import { Link } from "react-router-dom";
 import { validateUserAlgorithm } from "../Utils";
+import { getUsers } from "../APICalls";
 
 const UserLogin = ({ userLogged, setUserLogged }) => {
   //API Key
@@ -49,15 +50,12 @@ const UserLogin = ({ userLogged, setUserLogged }) => {
     });
   };
 
-  const validateUser = (e) => {
+  const validateUser = async (e) => {
     e.preventDefault();
-    fetch(`${process.env.REACT_APP_BACKEND_URL}/getusers`)
-      .then((response) => response.json())
-      .then((usersDb) => {
-        validateUserAlgorithm(usersDb, userInput)
-          ? handleLogin()
-          : console.log("wrong user or password");
-      });
+    const usersDb = await getUsers();
+    validateUserAlgorithm(usersDb, userInput)
+      ? handleLogin()
+      : console.log("wrong user or password");
   };
   return (
     <>
