@@ -18,3 +18,16 @@ export const getUsers = async () => {
   console.log(usersDb);
   return usersDb;
 };
+
+export const registerUser = (formdata) => {
+  fetch(`${process.env.REACT_APP_BACKEND_URL}/adduser`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(formdata),
+  }).then((response) => {
+    console.log(response);
+  });
+};

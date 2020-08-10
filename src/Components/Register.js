@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { registerUser } from "../APICalls";
 
 const Register = (props) => {
   const [formdata, setFormData] = useState({
@@ -13,17 +14,19 @@ const Register = (props) => {
 
   const submitNewUser = (e) => {
     e.preventDefault();
-    fetch(`${process.env.REACT_APP_BACKEND_URL}/adduser`, {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formdata),
-    }).then((response) => {
-      console.log(response);
-      props.history.push("/");
-    });
+    registerUser(formdata);
+    props.history.push("/");
+    // fetch(`${process.env.REACT_APP_BACKEND_URL}/adduser`, {
+    //   method: "POST",
+    //   headers: {
+    //     Accept: "application/json",
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(formdata),
+    // }).then((response) => {
+    //   console.log(response);
+    //   props.history.push("/");
+    // });
   };
   return (
     <>

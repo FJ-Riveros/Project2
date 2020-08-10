@@ -55,7 +55,7 @@ const UserLogin = ({ userLogged, setUserLogged }) => {
     const usersDb = await getUsers();
     validateUserAlgorithm(usersDb, userInput)
       ? handleLogin()
-      : console.log("wrong user or password");
+      : console.log("Wrong user or Password");
   };
   return (
     <>
