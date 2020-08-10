@@ -11,6 +11,7 @@ import FormGroup from "@material-ui/core/FormGroup";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import { Link } from "react-router-dom";
+import { handleLogout } from "./User Login";
 // import AccountBoxTwoToneIcon from "@material-ui/icons/AccountBoxTwoTone";
 
 const useStyles = makeStyles((theme) => ({
@@ -71,8 +72,12 @@ export default function MenuAppBar({ userLogged }) {
                 open={open}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose}>Login</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <Link to="/Profile">
+                  <MenuItem onClick={handleClose}>My account</MenuItem>
+                </Link>
+                <Link to="/">
+                  <MenuItem onClick={handleClose()}>Logout</MenuItem>
+                </Link>
               </Menu>
             </div>
           ) : (

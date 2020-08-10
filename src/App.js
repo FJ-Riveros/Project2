@@ -8,6 +8,8 @@ import UserLogin from "./Components/User Login";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import FirstPage from "./Components/FirstPage";
 import Register from "./Components/Register";
+import Profile from "./Components/Profile";
+
 function App() {
   //Receives the first letter from the input to load the info
   const [inputFirstLetter, setInputFirstLetter] = useState("");
@@ -64,6 +66,7 @@ function App() {
               )}
             />
             <Route path="/Register" component={Register} />
+            <Route path="/Profile" component={Profile} />
           </Switch>
         </StyledApp>
         <GlobalStyle />
