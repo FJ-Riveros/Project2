@@ -76,7 +76,7 @@ export default function MenuAppBar({ userLogged }) {
                   <MenuItem onClick={handleClose}>My account</MenuItem>
                 </Link>
                 <Link to="/">
-                  <MenuItem onClick={handleClose()}>Logout</MenuItem>
+                  <MenuItem onClick={handleClose}>Logout</MenuItem>
                 </Link>
               </Menu>
             </div>
