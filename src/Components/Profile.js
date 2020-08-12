@@ -3,7 +3,7 @@ import { getUsers } from "../APICalls";
 
 const Profile = ({ userIndex }) => {
   const [userProfile, setUserProfile] = useState(undefined);
-
+  console.log(userIndex);
   useEffect(() => {
     const updateUsers = async () => {
       setUserProfile(await getUsers());
@@ -18,5 +18,5 @@ const Profile = ({ userIndex }) => {
     </>
   );
 };
-
+//How to store the index of the user, so it doesn't dissapear when the user reloads the app
 export default Profile;

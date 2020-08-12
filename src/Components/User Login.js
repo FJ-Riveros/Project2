@@ -8,13 +8,7 @@ import { Link } from "react-router-dom";
 import { validateUserAlgorithm } from "../Utils";
 import { getUsers } from "../APICalls";
 
-const UserLogin = ({
-  userLogged,
-  setUserLogged,
-  setUserIndex,
-  userIndex,
-  setUserProfile,
-}) => {
+const UserLogin = ({ userLogged, setUserLogged, setUserIndex, userIndex }) => {
   //API Key
   const magic = new Magic(magicKey);
 
