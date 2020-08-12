@@ -23,7 +23,7 @@ export const validateUserAlgorithm = (usersDb, userInput) => {
       userInput.username === usersDb[i].username &&
       userInput.email === usersDb[i].email
     ) {
-      return true;
+      return i;
     }
   }
   return false;

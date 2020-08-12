@@ -15,7 +15,6 @@ export const RandomFetch = async () => {
 export const getUsers = async () => {
   const request = await fetch(`${process.env.REACT_APP_BACKEND_URL}/getusers`);
   const usersDb = await request.json();
-  console.log(usersDb);
   return usersDb;
 };
 

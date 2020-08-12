@@ -8,7 +8,13 @@ import { Link } from "react-router-dom";
 import { validateUserAlgorithm } from "../Utils";
 import { getUsers } from "../APICalls";
 
-const UserLogin = ({ userLogged, setUserLogged }) => {
+const UserLogin = ({
+  userLogged,
+  setUserLogged,
+  setUserIndex,
+  userIndex,
+  setUserProfile,
+}) => {
   //API Key
   const magic = new Magic(magicKey);
 
@@ -53,9 +59,8 @@ const UserLogin = ({ userLogged, setUserLogged }) => {
   const validateUser = async (e) => {
     e.preventDefault();
     const usersDb = await getUsers();
-    validateUserAlgorithm(usersDb, userInput)
-      ? handleLogin()
-      : console.log("Wrong user or Password");
+    setUserIndex(await validateUserAlgorithm(usersDb, userInput));
+    userIndex !== false ? handleLogin() : console.log("Wrong user or Password");
   };
   return (
     <>
