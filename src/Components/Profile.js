@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { getUsers } from "../APICalls";
 
-const Profile = ({ userIndex }) => {
+const Profile = () => {
   const [userProfile, setUserProfile] = useState(undefined);
-  console.log(userIndex);
   useEffect(() => {
     const updateUsers = async () => {
       setUserProfile(await getUsers());
@@ -14,7 +13,7 @@ const Profile = ({ userIndex }) => {
   return (
     <>
       <h1>From Profile</h1>
-      <h2>{userProfile !== undefined && userProfile[userIndex].username}</h2>
+      <h2>{userProfile !== undefined && userProfile[17].username}</h2>
     </>
   );
 };

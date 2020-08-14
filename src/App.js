@@ -25,9 +25,6 @@ function App() {
   //Check if the user is logged in to load the correct interface
   const [userLogged, setUserLogged] = useState(false);
 
-  //Tracks the userId to load the user information
-  const [userIndex, setUserIndex] = useState([]);
-
   useEffect(() => {
     const prueba1 = () => {
       fetch(`${process.env.REACT_APP_BACKEND_URL}/getusers`)
@@ -65,15 +62,11 @@ function App() {
                 <UserLogin
                   userLogged={userLogged}
                   setUserLogged={setUserLogged}
-                  setUserIndex={setUserIndex}
                 />
               )}
             />
             <Route path="/Register" component={Register} />
-            <Route
-              path="/Profile"
-              component={() => <Profile userIndex={userIndex} />}
-            />
+            <Route path="/Profile" component={() => <Profile />} />
           </Switch>
         </StyledApp>
         <GlobalStyle />

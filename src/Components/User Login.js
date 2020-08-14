@@ -25,6 +25,7 @@ const UserLogin = ({ userLogged, setUserLogged, setUserIndex, userIndex }) => {
     const isLoggedIn = await magic.user.isLoggedIn();
     if (isLoggedIn) {
       const userMetadata = await magic.user.getMetadata();
+      console.log(userMetadata.email);
       setUserLogged(true);
     }
   };
@@ -53,8 +54,8 @@ const UserLogin = ({ userLogged, setUserLogged, setUserIndex, userIndex }) => {
   const validateUser = async (e) => {
     e.preventDefault();
     const usersDb = await getUsers();
-    setUserIndex(await validateUserAlgorithm(usersDb, userInput));
-    userIndex !== false ? handleLogin() : console.log("Wrong user or Password");
+    const validation = await validateUserAlgorithm(usersDb, userInput);
+    validation ? handleLogin() : console.log("Wrong user or Password");
   };
   return (
     <>
