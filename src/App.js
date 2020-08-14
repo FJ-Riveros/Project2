@@ -9,8 +9,11 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import FirstPage from "./Components/FirstPage";
 import Register from "./Components/Register";
 import Profile from "./Components/Profile";
-
+import { Magic } from "magic-sdk";
+import { magicKey } from "./API/hidden";
 function App() {
+  const magic = new Magic(magicKey);
+
   //Receives the first letter from the input to load the info
   const [inputFirstLetter, setInputFirstLetter] = useState("");
   //Contains the data from the API
@@ -31,7 +34,13 @@ function App() {
         .then((response) => response.json())
         .then((data) => console.log(data));
     };
+
+    const prueba2 = async () => {
+      const prueba = await magic.user.getMetadata();
+      console.log(prueba);
+    };
     prueba1();
+    prueba2();
   }, []);
   return (
     <>
@@ -62,6 +71,7 @@ function App() {
                 <UserLogin
                   userLogged={userLogged}
                   setUserLogged={setUserLogged}
+                  magic={magic}
                 />
               )}
             />

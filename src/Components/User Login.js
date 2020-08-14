@@ -1,17 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Magic } from "magic-sdk";
 import StyledLogin from "./Styled/StyledLogin";
 import StyledSectionContainer from "./Styled/StyledSectionContainer";
 import { HomeButton } from "../Utils";
-import { magicKey } from "../API/hidden";
 import { Link } from "react-router-dom";
 import { validateUserAlgorithm } from "../Utils";
 import { getUsers } from "../APICalls";
 
-const UserLogin = ({ userLogged, setUserLogged, setUserIndex, userIndex }) => {
-  //API Key
-  const magic = new Magic(magicKey);
-
+const UserLogin = ({ userLogged, setUserLogged, magic }) => {
   const [userInput, setUserInput] = useState({
     username: "",
     email: "",
