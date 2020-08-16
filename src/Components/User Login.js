@@ -12,30 +12,18 @@ const UserLogin = ({ userLogged, setUserLogged, magic }) => {
     email: "",
   });
 
-  useEffect(() => {
-    render();
-  }, []);
-
-  const render = async () => {
-    const isLoggedIn = await magic.user.isLoggedIn();
-    if (isLoggedIn) {
-      const userMetadata = await magic.user.getMetadata();
-      console.log(userMetadata.email);
-      setUserLogged(true);
-    }
-  };
-
   const handleLogin = async () => {
     const email = userInput.email;
     if (email) {
-      await magic.auth.loginWithMagicLink({ email });
-      render();
+      const loggIn = await magic.auth.loginWithMagicLink({ email });
+      if (loggIn) {
+        setUserLogged(true);
+      }
     }
   };
 
   const handleLogout = async () => {
     await magic.user.logout();
-    render();
     setUserLogged(false);
   };
 

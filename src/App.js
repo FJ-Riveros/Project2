@@ -36,12 +36,16 @@ function App() {
     };
 
     const prueba2 = async () => {
-      const prueba = await magic.user.getMetadata();
-      console.log(prueba);
+      const isLoggedIn = await magic.user.isLoggedIn();
+      if (isLoggedIn) {
+        const prueba = await magic.user.getMetadata();
+        setUserLogged(true);
+        console.log(prueba);
+      }
     };
     prueba1();
     prueba2();
-  }, []);
+  }, [userLogged]);
   return (
     <>
       <Router>
