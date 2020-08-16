@@ -28,6 +28,8 @@ function App() {
   //Check if the user is logged in to load the correct interface
   const [userLogged, setUserLogged] = useState(false);
 
+  const [currentUserEmail, setCurrentUserEmail] = useState("none");
+
   useEffect(() => {
     const prueba1 = () => {
       fetch(`${process.env.REACT_APP_BACKEND_URL}/getusers`)
@@ -38,9 +40,10 @@ function App() {
     const prueba2 = async () => {
       const isLoggedIn = await magic.user.isLoggedIn();
       if (isLoggedIn) {
-        const prueba = await magic.user.getMetadata();
+        const currentUserMetadata = await magic.user.getMetadata();
         setUserLogged(true);
-        console.log(prueba);
+        console.log(currentUserMetadata);
+        setCurrentUserEmail(currentUserMetadata.email);
       }
     };
     prueba1();
@@ -80,7 +83,10 @@ function App() {
               )}
             />
             <Route path="/Register" component={Register} />
-            <Route path="/Profile" component={() => <Profile />} />
+            <Route
+              path="/Profile"
+              component={() => <Profile currentUserEmail={currentUserEmail} />}
+            />
           </Switch>
         </StyledApp>
         <GlobalStyle />

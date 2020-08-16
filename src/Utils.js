@@ -23,7 +23,6 @@ export const validateUserAlgorithm = (usersDb, userInput) => {
       userInput.username === usersDb[i].username &&
       userInput.email === usersDb[i].email
     ) {
-      console.log("hola");
       return true;
     }
   }
@@ -46,4 +45,13 @@ export const validateEmailAlgorithm = (usersDb, formData) => {
     }
   }
   return false;
+};
+
+export const getIndexOfCurrentUser = (usersDb, userEmail) => {
+  for (let i = 0; i < usersDb.length; i++) {
+    if (usersDb[i].email === userEmail) {
+      return i;
+    }
+  }
+  return null;
 };

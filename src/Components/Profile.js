@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { getUsers } from "../APICalls";
+import { getIndexOfCurrentUser } from "../Utils";
 
-const Profile = () => {
+const Profile = ({ currentUserEmail }) => {
   const [userProfile, setUserProfile] = useState(undefined);
+  const [userIndex, setUserIndex] = useState("");
   useEffect(() => {
     const updateUsers = async () => {
-      setUserProfile(await getUsers());
+      const usersDb = await getUsers();
+      setUserProfile(usersDb);
+      setUserIndex(await getIndexOfCurrentUser(usersDb, currentUserEmail));
     };
     updateUsers();
   }, []);
@@ -13,9 +17,9 @@ const Profile = () => {
   return (
     <>
       <h1>From Profile</h1>
-      <h2>{userProfile !== undefined && userProfile[17].username}</h2>
+      <h2>{userProfile !== undefined && userProfile[userIndex].username}</h2>
     </>
   );
 };
-//How to store the index of the user, so it doesn't dissapear when the user reloads the app
 export default Profile;
+//Cambiar el userIndex para que no crashee al inicializarse en undefined
