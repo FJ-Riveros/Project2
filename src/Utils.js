@@ -53,5 +53,5 @@ export const getIndexOfCurrentUser = (usersDb, userEmail) => {
       return i;
     }
   }
-  return null;
+  return "hola";
 };

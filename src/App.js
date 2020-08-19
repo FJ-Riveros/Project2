@@ -11,6 +11,7 @@ import Register from "./Components/Register";
 import Profile from "./Components/Profile";
 import { Magic } from "magic-sdk";
 import { magicKey } from "./API/hidden";
+import { getIndexOfCurrentUser } from "./Utils";
 function App() {
   const magic = new Magic(magicKey);
 
@@ -28,26 +29,37 @@ function App() {
   //Check if the user is logged in to load the correct interface
   const [userLogged, setUserLogged] = useState(false);
 
-  const [currentUserEmail, setCurrentUserEmail] = useState("none");
+  //Contains all the info of the current user
+  const [userInfo, setUserInfo] = useState("");
+
+  //Variable to store all the users from the Db
+  let getAllUsers;
 
   useEffect(() => {
     const prueba1 = () => {
       fetch(`${process.env.REACT_APP_BACKEND_URL}/getusers`)
         .then((response) => response.json())
-        .then((data) => console.log(data));
+        .then((data) => {
+          console.log(data);
+          getAllUsers = data;
+        });
     };
 
-    const prueba2 = async () => {
-      const isLoggedIn = await magic.user.isLoggedIn();
-      if (isLoggedIn) {
+    const isLoggedIn = async () => {
+      const isLogged = await magic.user.isLoggedIn();
+      if (isLogged) {
         const currentUserMetadata = await magic.user.getMetadata();
         setUserLogged(true);
         console.log(currentUserMetadata);
-        setCurrentUserEmail(currentUserMetadata.email);
+        const matchingAlgorithm = getIndexOfCurrentUser(
+          getAllUsers,
+          currentUserMetadata.email
+        );
+        setUserInfo(getAllUsers[matchingAlgorithm]);
       }
     };
     prueba1();
-    prueba2();
+    isLoggedIn();
   }, [userLogged]);
   return (
     <>
@@ -85,7 +97,7 @@ function App() {
             <Route path="/Register" component={Register} />
             <Route
               path="/Profile"
-              component={() => <Profile currentUserEmail={currentUserEmail} />}
+              component={() => <Profile userInfo={userInfo} />}
             />
           </Switch>
         </StyledApp>
