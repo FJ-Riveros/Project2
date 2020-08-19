@@ -44,7 +44,7 @@ export default function MenuAppBar({ userLogged }) {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            Project2
+            <Link to={"/"}>Project2</Link>
           </Typography>
           {userLogged ? (
             <div>

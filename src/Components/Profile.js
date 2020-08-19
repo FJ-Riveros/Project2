@@ -5,6 +5,7 @@ const Profile = ({ userInfo }) => {
     <>
       <h1>From Profile</h1>
       <h2>{userInfo.username}</h2>
+      <h2>{userInfo.email}</h2>
     </>
   );
 };
