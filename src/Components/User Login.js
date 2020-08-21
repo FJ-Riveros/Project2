@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import StyledLogin from "./Styled/StyledLogin";
 import StyledSectionContainer from "./Styled/StyledSectionContainer";
 import { HomeButton } from "../Utils";
-import { Link } from "react-router-dom";
 import { validateUserAlgorithm } from "../Utils";
 import { getUsers } from "../APICalls";
+import { withRouter, Link } from "react-router-dom";
 
-const UserLogin = ({ userLogged, setUserLogged, magic }) => {
+const UserLogin = (props) => {
+  console.log(props);
   const [userInput, setUserInput] = useState({
     username: "",
     email: "",
@@ -15,16 +16,17 @@ const UserLogin = ({ userLogged, setUserLogged, magic }) => {
   const handleLogin = async () => {
     const email = userInput.email;
     if (email) {
-      const loggIn = await magic.auth.loginWithMagicLink({ email });
+      const loggIn = await props.magic.auth.loginWithMagicLink({ email });
       if (loggIn) {
-        setUserLogged(true);
+        props.setUserLogged(true);
+        props.history.push("/");
       }
     }
   };
 
   const handleLogout = async () => {
-    await magic.user.logout();
-    setUserLogged(false);
+    await props.magic.user.logout();
+    props.setUserLogged(false);
   };
 
   const userCredentials = (e) => {
@@ -43,7 +45,7 @@ const UserLogin = ({ userLogged, setUserLogged, magic }) => {
   return (
     <>
       <StyledSectionContainer minheight>
-        {userLogged ? (
+        {props.userLogged ? (
           <>
             <h1>Current user:{"Usuario 1"}</h1>
             <button onClick={() => handleLogout()}>Logout</button>
@@ -78,4 +80,4 @@ const UserLogin = ({ userLogged, setUserLogged, magic }) => {
   );
 };
 
-export default UserLogin;
+export default withRouter(UserLogin);
