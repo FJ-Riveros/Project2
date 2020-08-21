@@ -21,10 +21,12 @@ const Register = (props) => {
 
   const usernameCheck = async () => {
     const usersDb = await getUsers();
-    if (formdata.username.length !== 0) {
+    if (formdata.username.length > 3 && formdata.username.length <= 14) {
       validateUserNameAlgorithm(usersDb, formdata)
         ? console.log("The username already exists")
         : console.log("Correct");
+    } else {
+      console.log("The username must contain between 3 and 14 characters");
     }
   };
 
