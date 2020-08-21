@@ -36,7 +36,7 @@ function App() {
   let getAllUsers;
 
   useEffect(() => {
-    const prueba1 = () => {
+    const getUsersFetch = () => {
       fetch(`${process.env.REACT_APP_BACKEND_URL}/getusers`)
         .then((response) => response.json())
         .then((data) => {
@@ -58,13 +58,17 @@ function App() {
         setUserInfo(getAllUsers[matchingAlgorithm]);
       }
     };
-    prueba1();
+    getUsersFetch();
     isLoggedIn();
   }, [userLogged]);
   return (
     <>
       <Router>
-        <Header userLogged={userLogged} />
+        <Header
+          userLogged={userLogged}
+          magic={magic}
+          setUserLogged={setUserLogged}
+        />
         <StyledApp>
           <Switch>
             <Route path="/" exact component={FirstPage} />

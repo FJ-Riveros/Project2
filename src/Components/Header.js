@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function MenuAppBar({ userLogged }) {
+export default function MenuAppBar({ userLogged, magic, setUserLogged }) {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -39,6 +39,11 @@ export default function MenuAppBar({ userLogged }) {
     setAnchorEl(null);
   };
 
+  const handleLogOut = async () => {
+    handleClose();
+    await magic.user.logout();
+    setUserLogged(false);
+  };
   return (
     <div className={classes.root}>
       <AppBar position="static">
@@ -76,7 +81,7 @@ export default function MenuAppBar({ userLogged }) {
                   <MenuItem onClick={handleClose}>My account</MenuItem>
                 </Link>
                 <Link to="/">
-                  <MenuItem onClick={handleClose}>Logout</MenuItem>
+                  <MenuItem onClick={handleLogOut}>Logout</MenuItem>
                 </Link>
               </Menu>
             </div>
