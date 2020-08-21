@@ -16,17 +16,17 @@ const UserLogin = (props) => {
   const handleLogin = async () => {
     const email = userInput.email;
     if (email) {
-      const loggIn = await props.magic.auth.loginWithMagicLink({ email });
-      if (loggIn) {
-        props.setUserLogged(true);
+      try {
+        const loggIn = await props.magic.auth.loginWithMagicLink({ email });
+        if (loggIn) {
+          props.setUserLogged(true);
+          props.history.push("/");
+        }
+      } catch (error) {
+        console.log(`The following error ocurred ${error}`);
         props.history.push("/");
       }
     }
-  };
-
-  const handleLogout = async () => {
-    await props.magic.user.logout();
-    props.setUserLogged(false);
   };
 
   const userCredentials = (e) => {
@@ -45,35 +45,26 @@ const UserLogin = (props) => {
   return (
     <>
       <StyledSectionContainer minheight>
-        {props.userLogged ? (
-          <>
-            <h1>Current user:{"Usuario 1"}</h1>
-            <button onClick={() => handleLogout()}>Logout</button>
-          </>
-        ) : (
-          <>
-            <h1>Login</h1>
-            <form onSubmit={(event) => validateUser(event)}>
-              <input
-                placeholder="Enter your username"
-                name="username"
-                required="required"
-                onChange={userCredentials}
-              />
-              <input
-                type="email"
-                name="email"
-                required="required"
-                placeholder="Enter your email"
-                onChange={userCredentials}
-              />
-              <button type="submit">Send</button>
-            </form>
-            <Link to="/Register">
-              <button>Register now</button>
-            </Link>
-          </>
-        )}
+        <h1>Login</h1>
+        <form onSubmit={(event) => validateUser(event)}>
+          <input
+            placeholder="Enter your username"
+            name="username"
+            required="required"
+            onChange={userCredentials}
+          />
+          <input
+            type="email"
+            name="email"
+            required="required"
+            placeholder="Enter your email"
+            onChange={userCredentials}
+          />
+          <button type="submit">Send</button>
+        </form>
+        <Link to="/Register">
+          <button>Register now</button>
+        </Link>
       </StyledSectionContainer>
       <HomeButton />
     </>

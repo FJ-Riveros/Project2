@@ -64,11 +64,7 @@ function App() {
   return (
     <>
       <Router>
-        <Header
-          userLogged={userLogged}
-          magic={magic}
-          setUserLogged={setUserLogged}
-        />
+        <Header userLogged={userLogged} magic={magic} />
         <StyledApp>
           <Switch>
             <Route path="/" exact component={FirstPage} />

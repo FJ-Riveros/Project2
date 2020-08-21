@@ -21,16 +21,28 @@ const Register = (props) => {
 
   const usernameCheck = async () => {
     const usersDb = await getUsers();
-    validateUserNameAlgorithm(usersDb, formdata)
-      ? console.log("The username already exists")
-      : console.log("Correct");
+    if (formdata.username.length !== 0) {
+      validateUserNameAlgorithm(usersDb, formdata)
+        ? console.log("The username already exists")
+        : console.log("Correct");
+    }
   };
 
   const emailCheck = async () => {
     const usersDb = await getUsers();
-    validateEmailAlgorithm(usersDb, formdata)
-      ? console.log("The email already exists")
-      : console.log("Correct");
+    if (formdata.email.length !== 0) {
+      validateEmailAlgorithm(usersDb, formdata)
+        ? console.log("The email already exists")
+        : console.log("Correct");
+    }
+  };
+
+  const ageCheck = () => {
+    if (formdata.age > 0 && formdata.age <= 120) {
+      console.log("Edad correcta");
+    } else {
+      console.log("Edad incorrecta");
+    }
   };
   return (
     <>
@@ -56,6 +68,7 @@ const Register = (props) => {
           name="age"
           required="required"
           onChange={createUser}
+          onPointerOut={ageCheck}
         ></input>
         <button type="submit">Send</button>
       </form>
