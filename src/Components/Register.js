@@ -30,12 +30,20 @@ const Register = (props) => {
     }
   };
 
+  function validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+  }
   const emailCheck = async () => {
     const usersDb = await getUsers();
     if (formdata.email.length !== 0) {
-      validateEmailAlgorithm(usersDb, formdata)
-        ? console.log("The email already exists")
-        : console.log("Correct");
+      if (validateEmail(formdata.email) === true) {
+        validateEmailAlgorithm(usersDb, formdata)
+          ? console.log("The email already exists")
+          : console.log("Correct");
+      } else {
+        console.log("Funciona");
+      }
     }
   };
 
