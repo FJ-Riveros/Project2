@@ -2,11 +2,15 @@ import React from "react";
 import StyledSectionContainer from "./Styled/StyledSectionContainer";
 import { HomeButton } from "../Utils";
 import StyledGrid from "./Styled/StyledWeekPlanning";
+import { useMediaQuery } from "react-responsive";
+
 const WeekPlanning = () => {
+  const isTabletOrMobile = useMediaQuery({ query: "(max-wid: 800px" });
   return (
     <>
       <StyledSectionContainer minheight>
         <h2>Week Planning</h2>
+
         <StyledGrid>
           <div className="grid-item-colum-header"></div>
           <div className="grid-item-colum-header">Monday</div>
