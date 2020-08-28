@@ -3,7 +3,7 @@ import StyledSectionContainer from "./Styled/StyledSectionContainer";
 import { HomeButton } from "../Utils";
 import StyledGrid from "./Styled/StyledWeekPlanning";
 import MediaQuery from "react-responsive";
-import VerticalTab from "./VerticalTab";
+import JupiterCollapsibleMenuStyle from "./GatsbyCollapSable";
 
 const WeekPlanning = () => {
   return (
@@ -56,7 +56,7 @@ const WeekPlanning = () => {
         </MediaQuery>
         <MediaQuery maxDeviceWidth={799}>
           <h2>Week Planning</h2>
-          <VerticalTab></VerticalTab>
+          <JupiterCollapsibleMenuStyle></JupiterCollapsibleMenuStyle>
         </MediaQuery>
         <button>Random week</button>
       </StyledSectionContainer>
