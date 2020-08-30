@@ -50,12 +50,15 @@ function App() {
       if (isLogged) {
         const currentUserMetadata = await magic.user.getMetadata();
         setUserLogged(true);
-        console.log(currentUserMetadata);
-        const matchingAlgorithm = getIndexOfCurrentUser(
-          getAllUsers,
-          currentUserMetadata.email
-        );
-        setUserInfo(getAllUsers[matchingAlgorithm]);
+        if (getAllUsers) {
+          const matchingAlgorithm = getIndexOfCurrentUser(
+            getAllUsers,
+            currentUserMetadata.email
+          );
+          setUserInfo(getAllUsers[matchingAlgorithm]);
+        } else {
+          console.log("The server is down");
+        }
       }
     };
     getUsersFetch();
