@@ -54,22 +54,22 @@ const JupiterCollapsibleMenuStyle = () => {
           </Menu.ListItem>
           <Menu.ListItem
             button
-            selected={index === 4}
-            onClick={createOnClick(4)}
+            selected={index === 5}
+            onClick={createOnClick(5)}
           >
             Friday
           </Menu.ListItem>
           <Menu.ListItem
             button
-            selected={index === 4}
-            onClick={createOnClick(4)}
+            selected={index === 6}
+            onClick={createOnClick(6)}
           >
             Saturday
           </Menu.ListItem>
           <Menu.ListItem
             button
-            selected={index === 4}
-            onClick={createOnClick(4)}
+            selected={index === 7}
+            onClick={createOnClick(7)}
           >
             Sunday
           </Menu.ListItem>
