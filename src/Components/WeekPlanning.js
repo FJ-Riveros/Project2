@@ -5,12 +5,22 @@ import StyledGrid from "./Styled/StyledWeekPlanning";
 import MediaQuery from "react-responsive";
 import JupiterCollapsibleMenuStyle from "./GatsbyCollapSable";
 import StyledCollapsible from "./Styled/StyledWeekPlanCollapsible";
+import { useMediaQuery } from "react-responsive";
 
 const WeekPlanning = () => {
+  const Mobile = ({ children }) => {
+    const isMobile = useMediaQuery({ maxWidth: 799 });
+    return isMobile ? children : null;
+  };
+
+  const Desktop = ({ children }) => {
+    const isDesktop = useMediaQuery({ minWidth: 800 });
+    return isDesktop ? children : null;
+  };
   return (
     <>
       <StyledSectionContainer minheight>
-        <MediaQuery minDeviceWidth={800}>
+        <Desktop>
           <h2>Week Planning</h2>
           <StyledGrid>
             <div className="grid-item-colum-header"></div>
@@ -54,13 +64,13 @@ const WeekPlanning = () => {
             <div className="grid-item-row">1</div>
             <div className="grid-item-row">1</div>
           </StyledGrid>
-        </MediaQuery>
-        <MediaQuery maxDeviceWidth={799}>
+        </Desktop>
+        <Mobile>
           <h2>Week Planning</h2>
           <StyledCollapsible>
             <JupiterCollapsibleMenuStyle></JupiterCollapsibleMenuStyle>
           </StyledCollapsible>
-        </MediaQuery>
+        </Mobile>
         <button>Random week</button>
       </StyledSectionContainer>
       <HomeButton />
