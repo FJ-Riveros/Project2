@@ -19,6 +19,13 @@ export default function FreeSolo({
     }
   }, [inputFirstLetter]);
 
+  const optionsChecker = () => {
+    if (data === undefined || data.meals === null) {
+      return ["Type the name of the recipe"];
+    } else {
+      return data.meals.map((options) => options.strMeal);
+    }
+  };
   return (
     <div style={{ width: 200 }}>
       <Autocomplete
@@ -27,7 +34,8 @@ export default function FreeSolo({
         id="free-solo-demo"
         freeSolo
         options={
-          data === undefined ? [] : data.meals.map((options) => options.strMeal)
+          // data === undefined ? [] : data.meals.map((options) => options.strMeal)
+          optionsChecker()
         }
         renderInput={(params) => (
           <TextField

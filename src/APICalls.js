@@ -3,6 +3,10 @@ export const inputList = async (inputFirstLetter) => {
     `https://www.themealdb.com/api/json/v1/1/search.php?f=${inputFirstLetter}`
   );
   const response = await data.json();
+  console.log(response.meals);
+  if (response.meals === "null") {
+    return [];
+  }
   return response;
 };
 
