@@ -33,10 +33,7 @@ export default function FreeSolo({
         onChange={(event) => setSearchText(event.target.value)}
         id="free-solo-demo"
         freeSolo
-        options={
-          // data === undefined ? [] : data.meals.map((options) => options.strMeal)
-          optionsChecker()
-        }
+        options={optionsChecker()}
         renderInput={(params) => (
           <TextField
             {...params}

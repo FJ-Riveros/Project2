@@ -6,7 +6,7 @@ const JupiterCollapsibleMenuStyle = () => {
   const [index, setIndex] = React.useState(-1);
   const createOnClick = (idx) => () => setIndex(idx);
   return (
-    <Box minWidth={343}>
+    <Box minWidth={200}>
       <Menu
         collapsed
         useStyles={useJupiterCollapsibleMenuStyles}
