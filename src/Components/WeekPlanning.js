@@ -2,7 +2,6 @@ import React from "react";
 import StyledSectionContainer from "./Styled/StyledSectionContainer";
 import { HomeButton } from "../Utils";
 import StyledGrid from "./Styled/StyledWeekPlanning";
-import MediaQuery from "react-responsive";
 import JupiterCollapsibleMenuStyle from "./GatsbyCollapSable";
 import StyledCollapsible from "./Styled/StyledWeekPlanCollapsible";
 import { useMediaQuery } from "react-responsive";
