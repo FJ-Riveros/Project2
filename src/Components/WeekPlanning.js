@@ -5,6 +5,7 @@ import StyledGrid from "./Styled/StyledWeekPlanning";
 import JupiterCollapsibleMenuStyle from "./GatsbyCollapSable";
 import StyledCollapsible from "./Styled/StyledWeekPlanCollapsible";
 import { useMediaQuery } from "react-responsive";
+import WeekCalendar from "./Calendar";
 
 const WeekPlanning = () => {
   const Mobile = ({ children }) => {
@@ -63,6 +64,7 @@ const WeekPlanning = () => {
             <div className="grid-item-row">1</div>
             <div className="grid-item-row">1</div>
           </StyledGrid>
+          <WeekCalendar />
         </Desktop>
         <Mobile>
           <h2>Week Planning</h2>
