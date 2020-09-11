@@ -74,7 +74,11 @@ function App() {
         />
         <StyledApp>
           <Switch>
-            <Route path="/" exact component={FirstPage} />
+            <Route
+              path="/"
+              exact
+              component={() => <FirstPage userLogged={userLogged} />}
+            />
             <Route
               path="/RecipeSearch"
               render={() => (

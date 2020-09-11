@@ -72,7 +72,7 @@ const WeekPlanning = () => {
             <JupiterCollapsibleMenuStyle></JupiterCollapsibleMenuStyle>
           </StyledCollapsible>
         </Mobile>
-        <button>Random week</button>
+        <button disabled={true}>Random week</button>
       </StyledSectionContainer>
       <HomeButton />
     </>
